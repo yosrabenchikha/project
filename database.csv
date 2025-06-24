@@ -1,0 +1,315 @@
+date;est_weekend;est_ferie;period_soldes;produit_id;nom_produit;client_id;jour_semaine;quantite_vente;event_commerciaux;segment;campagne_marketing;remise_pct;genre_client;prix;prix_concurrent_moyen;saisonnalite;taux-fidelite
+01/01/2018;1;1;1;PROD-7A8B9C0D;Pablo Laine Macrines;CLI-8D9E0F1A;Monday;27;New Year;Standard;Email;0.34;M;84.27;95.82;0.8;0.55
+20/01/2018;1;0;0;PROD-501;Tapis Tressé Jute;CLI-033;Samedi;5;None;Professionnel;None;0;M;89.99;85.00;0.9;0.30
+20/01/2018;1;0;0;PROD-501;Tapis Tressé Jute;CLI-033;Samedi;5;None;Professionnel;None;0;M;89.99;85.00;0.9;0,4
+14/02/2018;0;0;0;PROD-9A0B1C2D;Port de fleurs Design;CLI-3D4E5F6A;Wednesday;34;Valentine's;Standard;TV;0.18;M;118.90;130.25;1.2;0.71
+18/02/2018;1;0;0;PROD-601;Horloge Murale Bois Massif;CLI-078;Dimanche;6;None;Particulier;None;0;F;79.50;75.00;1.0;0.28
+15/03/2018;0;0;0;PROD-502;Cadre Photo Bambou;CLI-121;Jeudi;7;Printemps;Particulier;Emailing;10;F;29.90;31.50;1.1;0.17
+21/03/2018;0;0;0;PROD-7B8C9D0E;Céramique émilie;CLI-2B3C4D5E;Wednesday;35;Spring Equinox;Premium;Search Ads;0.07;M;147.55;140.12;1.0;0.97
+28/03/2018;0;0;0;PROD-504;Coussin Méditation;CLI-144;Mercredi;4;None;Particulier;None;0;M;44.90;42.00;0.9;0.21
+01/04/2018;0;0;0;PROD-825;Papier Peint Réactif;CLI-088;Dimanche;3;Poisson_Avril;Particulier;Google_Ads;0;M;59.90;56.00;1.1;0.24
+15/04/2018;1;0;0;PROD-621;Set de 4 Chaises Design;CLI-144;Dimanche;5;None;Professionnel;None;0;F;399.00;375.00;1.2;0.17
+28/04/2018;1;0;0;PROD-731;Fauteuilé  Bascule Ergonomique;CLI-088;Samedi;6;None;Professionnel;Reseaux_Sociaux;0;F;590.00;555.00;1.4;0.20
+30/04/2018;0;0;0;PROD-401;Ensemble de Verres Design;CLI-099;Lundi;4;None;Particulier;None;0;Autre;40.00;38.00;0.8;0.19
+12/05/2018;1;0;0;PROD-602;Vase en Verre Soufflé;CLI-122;Samedi;9;Fete_Meres;Professionnel;Reseaux_Sociaux;10;M;45.00;47.50;1.4;0.70
+12/05/2018;1;0;0;PROD-5A8B3C9D;Saphi NFT;CLI-9A8B7C6D;Saturday;38;Promo Flash;Premium;Email;0.33;M;103.63;192.12;1.0;0.74
+19/05/2018;1;0;0;PROD-801;Bougeoir Volcanique;CLI-147;Samedi;8;None;Particulier;None;0;F;129.00;135.00;1.2;0.57
+15/06/2018;0;0;0;PROD-505;Porte-Couteaux Magnétique;CLI-099;Vendredi;7;Fete_Peres;Professionnel;Emailing;0;F;29.50;31.00;1.2;0.20
+18/06/2018;0;0;0;PROD-7D8E9F0A;Port de fleurs Design;CLI-8F9A0B1C;Monday;27;Father's Day;Standard;Email;0.19;M;119.65;129.88;1.2;0.77
+21/06/2018;1;0;0;PROD-841;Sphére Flottante;CLI-211;Samedi;14;Solstice_Ete;Particulier;Emailing;0;F;5990.00;6300.00;2.2;0.21
+04/07/2018;1;1;1;PROD-6B7C8D9E;Ensemble Verres Design;CLI-1F2A3B4C;Wednesday;25;Independence Day;Standard;Search Ads;0.30;F;18.50;43.27;1.0;0.46
+07/07/2018;1;0;0;PROD-629;Statue Jardin Bronze;CLI-033;Samedi;7;None;Professionnel;Reseaux_Sociaux;0;F;249.00;235.00;1.8;0.35
+21/07/2018;1;0;0;PROD-739;Jardin Vertical Automatique;CLI-256;Samedi;12;Solstice_Ete;Particulier;Google_Ads;0;F;1590.00;1500.00;2.0;0.17
+22/07/2018;1;0;0;PROD-503;Suspension Macramé;CLI-045;Dimanche;9;Solstice_Ete;Professionnel;Reseaux_Sociaux;0;F;69.50;72.00;1.6;2.32
+11/08/2018;1;0;0;PROD-833;étagéres Gravitationnelles;CLI-211;Samedi;9;Solstice_Ete;Particulier;Google_Ads;0;F;790.00;830.00;1.9;0.49
+19/08/2018;1;0;0;PROD-603;Porte-Manteau Design;CLI-045;Dimanche;11;Solstice_Ete;Particulier;Influenceurs;0;F;89.90;84.00;1.7;1.33
+03/09/2018;0;0;0;PROD-7D3E1F9A;Pablo Laine Macrines;CLI-7A8B9C0D;Monday;27;Back to School;Standard;Email;0.34;M;84.27;95.82;0.8;0.55
+08/09/2018;0;0;0;PROD-101;Suspension en Rotin Naturel;CLI-211;Samedi;6;Rentree;Particulier;Google_Ads;5;M;69.99;74.00;1.0;0.28
+09/09/2018;1;0;0;PROD-809;Sculpture Cinétique;CLI-033;Dimanche;4;None;Particulier;None;0;F;2490.00;2340.00;1.1;1.18
+14/09/2018;0;0;0;PROD-716;Revétement Mural 3D;CLI-088;Vendredi;12;None;Particulier;None;0;M;95.00;89.00;1.1;0.30
+22/09/2018;1;0;0;PROD-506;Plateau Petit Déjeuner;CLI-045;Samedi;10;Equinoxe;Particulier;Reseaux_Sociaux;5;M;69.90;66.00;1.6;0.29
+05/10/2018;0;0;0;PROD-701;Mur Végétal Modulaire;CLI-145;Vendredi;7;None;Professionnel;None;0;M;349.00;330.00;1.4;1.65
+31/10/2018;1;0;0;PROD-302;Bougeoir en Céramique émaillée;CLI-078;Mercredi;15;Halloween;Professionnel;Influenceurs;15;M;39.90;42.00;1.7;0.31
+31/10/2018;0;0;0;PROD-7C8D9E0F;Saphi NFT;CLI-2D3E4F5A;Wednesday;26;Halloween;Premium;TV;0.29;F;112.45;186.77;1.0;0.80
+11/11/2018;0;0;1;PROD-2A3B4C5D;Saphi NFT;CLI-3B4C5D6E;Sunday;26;Single's Day;Economy;Search Ads;0.31;F;97.84;185.91;1.0;0.79
+23/11/2018;0;0;0;PROD-401;Ensemble de Verres Design;CLI-055;Vendredi;8;Black_Friday;Particulier;Emailing;30;F;42.50;40.00;1.7;0.26
+30/11/2018;0;0;0;PROD-817;Coussin Thérapeutique;CLI-033;Vendredi;16;Black_Friday;Particulier;Google_Ads;35;F;159.00;150.00;1.9;0.58
+08/12/2018;1;0;0;PROD-724;Sapin Artificiel Designer;CLI-256;Samedi;24;Noel;Particulier;Emailing;0;F;299.00;315.00;2.9;0.20
+15/12/2018;1;0;0;PROD-302;Bougeoir en Céramique émaillée;CLI-122;Samedi;22;Noel;Professionnel;Reseaux_Sociaux;15;M;41.90;44.00;2.5;0.39
+24/12/2018;1;0;1;PROD-8B9C0D1E;Protection Panoramique;CLI-6C7D8E9F;Monday;30;Christmas Eve;Premium;Social Media;0.17;Autre;158.33;115.42;1.2;0.89
+05/01/2019;0;0;1;PROD-604;Set de Bols Céramique;CLI-099;Samedi;7;Soldes_Hiver;Professionnel;Emailing;30;Autre;29.99;31.00;1.1;0.54
+12/01/2019;1;0;1;PROD-304;Guirlande Lumineuse étoiles;CLI-022;Samedi;8;Soldes_Hiver;Particulier;Emailing;25;F;23.99;25.25;1.2;0.20
+22/01/2019;0;0;1;PROD-702;Systéme éclairage Connecté;CLI-099;Mardi;11;Soldes_Hiver;Particulier;Emailing;25;F;229.00;240.00;1.8;0.17
+02/02/2019;1;0;0;PROD-740;Systéme de Réalité Augmentée;CLI-088;Samedi;5;None;Professionnel;Reseaux_Sociaux;0;M;4990.00;5240.00;1.3;0.15
+03/02/2019;0;0;0;PROD-4D5E6F7A;Pablo Laine Macrines;CLI-1D2E3F4A;Sunday;25;Winter Sale;Standard;Search Ads;0.24;F;82.15;88.76;0.8;0.57
+14/02/2019;0;0;0;PROD-507;Coffret Bougies Parfumées;CLI-211;Jeudi;20;Saint_Valentin;Professionnel;Influenceurs;15;F;49.90;52.00;1.7;0.50
+28/02/2019;0;0;0;PROD-802;Tapis éphémére UV;CLI-288;Jeudi;5;None;Professionnel;Google_Ads;0;M;349.00;330.00;0.9;0.22
+28/02/2019;0;0;0;PROD-202;Fauteuil Papillon Velours;CLI-088;Jeudi;4;None;Professionnel;None;0;F;249.00;262.00;0.9;2.21
+10/03/2019;0;0;0;PROD-305;Pot de Fleurs Design Terracotta;CLI-199;Dimanche;5;Printemps;Particulier;Google_Ads;0;F;32.00;33.75;1.0;0.49
+15/03/2019;0;0;0;PROD-842;Luminaires Mycélium;CLI-144;Vendredi;8;Printemps;Professionnel;Google_Ads;0;M;890.00;840.00;1.5;0.58
+17/03/2019;0;0;0;PROD-2B3C4D5E;Céramique émilie;CLI-6D7E8F9A;Sunday;40;St. Patrick's;Premium;Social Media;0.15;F;156.89;143.76;1.0;0.87
+30/03/2019;1;0;0;PROD-630;Mobilier de Salon Modulaire;CLI-088;Samedi;11;Printemps;Particulier;Influenceurs;10;M;899.00;950.00;1.6;0.18
+19/04/2019;1;0;0;PROD-305;Pot de Fleurs Design Terracotta;CLI-122;Vendredi;11;Paques;Particulier;Emailing;10;M;31.00;32.75;1.3;1.09
+20/04/2019;1;0;0;PROD-9F1E2D3C;Campelée Aragis;CLI-7C8D9E0F;Saturday;35;Spring Sale;Standard;TV;0.23;M;128.50;35.77;0.8;0.62
+22/04/2019;0;0;0;PROD-717;Kit Hydroponie Décoratif;CLI-144;Lundi;8;Jour_Terre;Professionnel;Emailing;10;F;149.00;157.00;1.6;1.00
+15/05/2019;0;0;0;PROD-103;Table Basse en Chéne Massif;CLI-144;Mercredi;7;Fete_Meres;Professionnel;Google_Ads;0;Autre;129.00;136.00;1.4;0.18
+18/05/2019;1;0;0;PROD-834;Lumiére Pollinisatrice;CLI-144;Samedi;15;Fete_Meres;Professionnel;Reseaux_Sociaux;0;M;459.00;480.00;1.6;0.38
+25/05/2019;1;0;0;PROD-508;Housse de Couette Lin;CLI-122;Samedi;8;Fete_Meres;Particulier;Google_Ads;0;Autre;129.00;135.00;1.5;0.35
+27/05/2019;1;0;0;PROD-2D3E4F5A;Campelée Aragis;CLI-8E9F0A1B;Monday;28;Memorial Day;Standard;Email;0.11;M;133.99;37.25;0.8;0.70
+18/06/2019;0;0;0;PROD-703;Claustra Bois Exotique;CLI-211;Mardi;9;Solstice_Ete;Professionnel;Google_Ads;0;F;499.00;525.00;1.9;0.68
+22/06/2019;1;0;0;PROD-202;Fauteuil Papillon Velours;CLI-077;Samedi;11;Solstice_Ete;Professionnel;Influenceurs;20;Autre;259.00;272.00;1;0.35
+30/06/2019;1;0;0;PROD-1A9B8C7D;Mivari Boulotre;CLI-6B7C8D9E;Sunday;32;Summer Start;Economy;Search Ads;0.08;F;45.91;52.33;0.2;0.29
+03/07/2019;0;0;0;PROD-605;Lanterne d'Extérieur Fer Forgé;CLI-211;Mercredi;13;None;Particulier;Google_Ads;0;M;119.00;125.00;1.8;0.70
+17/07/2019;0;0;0;PROD-818;Suspension Lave;CLI-211;Mercredi;7;None;Professionnel;Influenceurs;0;M;790.00;830.00;1.8;0.50
+08/08/2019;0;0;0;PROD-725;Systéme d'Arrosage Intelligent;CLI-144;Jeudi;9;None;Professionnel;Google_Ads;0;M;199.00;210.00;1.8;0.34
+10/08/2019;1;0;0;PROD-501;Tapis Tressé Jute;CLI-033;Samedi;12;Solstice_Ete;Particulier;Reseaux_Sociaux;0;M;94.99;89.00;1.8;1.18
+15/08/2019;0;0;0;PROD-3B4C5D6E;Saphin Bioluminescent;CLI-7B8C9D0E;Thursday;25;Summer Sale;Premium;Email;0.22;Autre;195.50;198.77;0.5;0.88
+30/08/2019;0;0;0;PROD-509;Set de Rangement Cuisine;CLI-033;Vendredi;11;None;Professionnel;None;0;M;89.90;84.00;1.1;0.44
+02/09/2019;1;0;0;PROD-2E3F4A5B;Mivari Boulotre;CLI-8C9D0E1F;Monday;27;Labor Day;Economy;Affiliation;0.13;F;47.12;53.67;0.2;0.37
+07/09/2019;0;0;0;PROD-103;Table Basse en Chéne Massif;CLI-144;Samedi;6;Rentree;Particulier;None;0;M;135.00;142.00;1.1;0.31
+12/10/2019;0;0;0;PROD-502;Cadre Photo Bambou;CLI-121;Samedi;3;None;Professionnel;None;0;F;31.50;33.00;0.7;0.30
+31/10/2019;1;0;0;PROD-826;Lanterne Fantéme;CLI-144;Jeudi;25;Halloween;Professionnel;Influenceurs;20;F;89.90;84.00;2.3;0.18
+31/10/2019;1;0;0;PROD-622;Décor Fantéme Lumineux;CLI-200;Jeudi;22;Halloween;Particulier;Influenceurs;20;M;39.90;42.00;2.0;0.38
+31/10/2019;0;0;0;PROD-1A2B3C4D;Coussins Halloween;CLI-8B9C0D1E;Thursday;31;Halloween;Economy;Email;0.04;M;175.28;160.45;0.5;0.55
+11/11/2019;0;1;0;PROD-732;Vitrine Musée Domestique;CLI-256;Lundi;9;Armistice;Particulier;Influenceurs;0;M;1290.00;1355.00;1.3;0.20
+15/11/2019;0;0;0;PROD-606;Pouf en Cuir Recyclé;CLI-033;Vendredi;15;Black_Friday;Professionnel;Emailing;25;F;149.90;157.00;1.9;0.31
+23/11/2019;1;0;1;PROD-E7F2A1B8;Campelée Aragis;CLI-1B2C3D4E;Saturday;25;Soldes;Standard;Search Ads;0.12;F;132.75;40.05;0.8;0.93
+29/11/2019;1;0;0;PROD-401;Ensemble de Verres Design;CLI-099;Vendredi;18;Black_Friday;Particulier;Emailing;35;M;37.50;35.50;1.9;1.27
+01/12/2019;1;0;0;PROD-810;Tapis Sensitif;CLI-144;Samedi;18;Noel;Professionnel;Emailing;10;M;799.00;750.00;2.5;0.43
+24/12/2019;0;0;0;PROD-101;Suspension en Rotin Naturel;CLI-211;Mardi;26;Noel;Professionnel;Emailing;25;F;74.99;79.00;2.7;0.17
+31/12/2019;1;0;1;PROD-2A3B4C5D;Saphi NFT;CLI-4E5F6A7B;Tuesday;38;New Year's Eve;Premium;Email;0.33;M;103.63;192.12;1.0;0.74
+01/01/2020;1;1;1;PROD-8C9D0E1F;Saphi NFT;CLI-4B5C6D7E;Wednesday;28;New Year;Premium;Social Media;0.26;F;108.92;188.33;1.0;0.78
+08/01/2020;0;0;1;PROD-101;Suspension en Rotin Naturel;CLI-145;Mercredi;7;Soldes_Hiver;Professionnel;Emailing;25;F;79.99;84.50;1.6;0.28
+08/01/2020;0;0;1;PROD-101;Suspension en Rotin Naturel;CLI-145;Mercredi;7;Soldes_Hiver;Professionnel;Emailing;25;F;79.99;84.50;1.6;0.99
+18/01/2020;1;0;1;PROD-510;Suspension Origami;CLI-088;Samedi;13;Soldes_Hiver;Particulier;Emailing;20;F;109.00;115.00;1.9;0.29
+25/01/2020;1;0;1;PROD-819;Mur d'Eau Portatif;CLI-144;Samedi;11;Soldes_Hiver;Particulier;Emailing;20;Autre;1490.00;1570.00;1.7;0.29
+01/02/2020;1;0;0;PROD-503;Suspension Macramé;CLI-045;Samedi;7;Saint_Valentin;Professionnel;Influenceurs;10;F;71.00;74.50;1.3;0.33
+02/02/2020;0;0;0;PROD-835;Mur Tactile Aquatique;CLI-099;Dimanche;5;Chandeleur;Particulier;Influenceurs;0;F;3490.00;3300.00;1.3;1.20
+08/02/2020;0;0;0;PROD-9C0D4E3F;Coussins Halloween;CLI-5E6F7A8B;Saturday;26;No Event;Economy;Social Media;0.06;M;192.65;157.64;0.5;0.42
+14/02/2020;0;0;0;PROD-303;Plaid en Laine Mérinos;CLI-289;Vendredi;12;Saint_Valentin;Particulier;Influenceurs;10;F;64.90;68.00;1.3;1.84
+14/02/2020;0;0;0;PROD-303;Plaid en Laine Mérinos;CLI-289;Vendredi;12;Saint_Valentin;Particulier;Influenceurs;10;F;64.90;68.00;1.3;0.26
+29/02/2020;1;0;0;PROD-718;Plateau Tournant Vinyle;CLI-099;Samedi;5;None;Particulier;Reseaux_Sociaux;0;M;129.00;120.00;1.3;0.25
+08/03/2020;1;0;0;PROD-704;Fontaine Murale Zen;CLI-088;Dimanche;6;Printemps;Particulier;Reseaux_Sociaux;10;M;179.90;190.00;1.5;0.25
+15/03/2020;0;0;0;PROD-102;Miroir Bohéme 80cm;CLI-200;Dimanche;5;Printemps;Particulier;Google_Ads;0;M;149.00;157.00;1.1;0.35
+17/03/2020;0;0;0;PROD-7D8E9F0A;Ensemble Verres Design;CLI-2C3D4E5F;Tuesday;31;St. Patrick's;Standard;Social Media;0.32;F;17.25;47.63;1.0;0.42
+21/03/2020;1;0;0;PROD-305;Pot de Fleurs Design Terracotta;CLI-077;Samedi;5;Printemps;Professionnel;Google_Ads;0;M;34.50;36.25;1.1;0.38
+21/03/2020;1;0;0;PROD-305;Pot de Fleurs Design Terracotta;CLI-077;Samedi;5;Printemps;Professionnel;Google_Ads;0;M;34.50;36.25;1.1;0.42
+05/04/2020;1;0;0;PROD-607;Table d'Appoint Marbre;CLI-088;Samedi;8;Paques;Particulier;Reseaux_Sociaux;0;F;249.00;235.00;1.5;0.18
+10/04/2020;1;0;0;PROD-204;Parure de Coussins;CLI-120;Vendredi;9;Paques;Professionnel;Emailing;10;F;52.90;49.50;1.4;0.18
+12/04/2020;1;0;1;PROD-8E9F0A1B;Protection Panoramique;CLI-4D5E6F7A;Sunday;33;Easter;Premium;Social Media;0.17;Autre;161.88;114.63;1.2;0.93
+22/04/2020;0;0;0;PROD-811;Mur Lichen Artificiel;CLI-099;Mercredi;9;Jour_Terre;Particulier;Google_Ads;0;F;149.90;141.00;1.6;1.06
+01/05/2020;1;1;0;PROD-202;Fauteuil Papillon Velours;CLI-212;Vendredi;9;Fete_Travail;Particulier;None;0;Autre;279.00;294.00;1.2;0.59
+01/05/2020;1;1;0;PROD-202;Fauteuil Papillon Velours;CLI-212;Vendredi;9;Fete_Travail;Particulier;None;0;Autre;279.00;294.00;1.2;0.34
+05/05/2020;0;0;0;PROD-8B9C0D1E;Campelée Aragis;CLI-9A0B1C2D;Tuesday;25;Cinco de Mayo;Standard;Search Ads;0.12;F;132.75;40.05;0.8;0.93
+20/06/2020;1;0;0;PROD-301;Lampe de Chevet Scandinave;CLI-055;Samedi;14;Solstice_Ete;Particulier;Reseaux_Sociaux;0;Autre;79.90;84.00;1.7;0.97
+04/07/2020;1;1;1;PROD-4B5C6D7E;Protection Panoramique;CLI-2F3A4B5C;Saturday;30;Independence Day;Premium;Email;0.16;Autre;165.44;110.29;1.2;0.85
+11/07/2020;1;0;1;PROD-803;Fontaine Ã  Paroles;CLI-066;Samedi;11;Soldes_Ete;Particulier;Reseaux_Sociaux;20;Autre;199.00;210.00;1.8;0.97
+14/07/2020;1;1;1;PROD-104;Canapé d'Angle Velours;CLI-331;Mardi;11;Soldes_Ete;Professionnel;Reseaux_Sociaux;30;F;769.00;730.00;2.0;0.65
+14/07/2020;1;1;1;PROD-104;Canapé d'Angle Velours;CLI-331;Mardi;11;Soldes_Ete;Professionnel;Reseaux_Sociaux;30;F;769.00;730.00;2.0;0.25
+31/07/2020;1;0;0;PROD-726;Penderie Connectée;CLI-099;Vendredi;11;Soldes_Ete;Particulier;Reseaux_Sociaux;25;F;349.00;330.00;2.0;2.31
+08/08/2020;1;0;0;PROD-733;Poutre Apparente Lumineuse;CLI-144;Samedi;7;None;Professionnel;None;0;F;390.00;370.00;1.8;2.31
+15/08/2020;1;1;0;PROD-105;Bibliothéque Modulable Noir;CLI-256;Samedi;10;Assomption;Professionnel;None;0;F;329.00;346.00;1.5;1.14
+11/09/2020;0;0;0;PROD-9E0F1A2B;Céramique émilie;CLI-5A6B7C8D;Friday;27;Back to School;Premium;Affiliation;0.08;M;144.88;137.45;1.0;0.95
+12/09/2020;1;0;0;PROD-303;Plaid en Laine Mérinos;CLI-289;Samedi;8;Rentree;Particulier;Emailing;5;M;67.90;71.00;1.0;1.96
+19/09/2020;1;0;0;PROD-608;Suspension Métal Industriel;CLI-122;Samedi;10;Rentree;Professionnel;None;0;M;129.00;135.00;1.0;1.13
+01/10/2020;0;0;0;PROD-843;Paravent Holographique;CLI-099;Jeudi;12;None;Particulier;Reseaux_Sociaux;0;F;2490.00;2340.00;1.9;0.47
+10/10/2020;1;0;0;PROD-511;Porte-Serviettes Design;CLI-256;Samedi;9;None;Professionnel;Reseaux_Sociaux;0;F;79.50;75.00;1.3;0.52
+12/10/2020;0;1;0;PROD-3F0E4D5C;Port de fleurs Design;CLI-1E2F3A4B;Monday;29;Holiday;Standard;TV;0.11;M;112.45;125.67;1.2;0.64
+15/10/2020;0;0;0;PROD-302;Bougeoir en Céramique émaillée;CLI-098;Jeudi;12;Halloween;Professionnel;Google_Ads;15;F;43.90;46.00;1.6;6.86
+30/10/2020;1;0;0;PROD-741;Décor Holographique Halloween;CLI-144;Vendredi;28;Halloween;Particulier;Influenceurs;30;F;390.00;370.00;2.5;0.48
+26/11/2020;1;1;0;PROD-8C9D0E1F;Mivari Boulotre;CLI-1B2C3D4F;Thursday;32;Thanksgiving;Economy;Search Ads;0.08;F;45.91;52.33;0.2;0.29
+27/11/2020;1;0;0;PROD-705;Miroir Intelligent;CLI-033;Samedi;15;Black_Friday;Professionnel;Influenceurs;30;F;399.00;420.00;1.7;0.20
+12/12/2020;1;0;0;PROD-827;Sapin Magnétique;CLI-099;Samedi;19;Noel;Particulier;Emailing;0;Autre;299.00;315.00;2.8;0.51
+15/12/2020;0;0;0;PROD-623;Couronne de Noél;CLI-033;Mardi;30;Noel;Professionnel;Emailing;15;F;49.90;52.00;3.0;0.97
+24/12/2020;1;0;0;PROD-302;Bougeoir en Céramique émaillée;CLI-098;Jeudi;28;Noel;Particulier;Emailing;20;M;44.90;47.00;2.8;0.65
+24/12/2020;1;0;0;PROD-302;Bougeoir en Céramique émaillée;CLI-098;Jeudi;28;Noel;Particulier;Emailing;20;M;44.90;47.00;2.8;0.65
+25/12/2020;1;1;1;PROD-8D9E0F1A;Port de fleurs Design;CLI-4C5D6E7F;Friday;32;Christmas;Standard;TV;0.20;M;125.80;132.45;1.2;0.75
+01/01/2021;1;1;1;PROD-2C3D4E5F;Coussins Halloween;CLI-8D9E0F1A;Friday;28;New Year;Economy;Search Ads;0.05;M;180.44;165.89;0.5;0.51
+10/01/2021;1;0;1;PROD-103;Table Basse en Chéne Massif;CLI-156;Dimanche;10;Soldes_Hiver;Professionnel;Influenceurs;15;F;144.00;152.00;1.7;0.18
+20/01/2021;0;0;1;PROD-502;Cadre Photo Bambou;CLI-121;Mercredi;9;Soldes_Hiver;Particulier;Emailing;20;F;27.50;29.00;1.3;0.17
+05/02/2021;0;0;0;PROD-706;Canapé Modulaire écologique;CLI-256;Vendredi;12;None;Particulier;None;0;F;1299.00;1350.00;1.3;0.62
+14/02/2021;0;0;0;PROD-609;Coussin Ergonomique;CLI-055;Dimanche;18;Saint_Valentin;Particulier;Influenceurs;15;F;59.90;55.00;1.6;0.17
+14/02/2021;0;0;0;PROD-4C5D6E7F;Coussins Halloween;CLI-3B4C5D6E;Sunday;26;Valentine's;Economy;Social Media;0.06;M;192.65;157.64;0.5;0.42
+18/03/2021;0;0;0;PROD-503;Suspension Macramé;CLI-045;Jeudi;6;Printemps;Professionnel;None;0;M;74.50;78.00;1.0;3.55
+20/03/2021;1;0;0;PROD-742;Plancher Chauffant Design;CLI-099;Samedi;15;Printemps;Professionnel;Emailing;0;F;129.90;122.00;1.7;0.28
+22/03/2021;0;0;1;PROD-6C8D2E1F;Saphin Bioluminescent;CLI-8A9B0C1D;Monday;31;Spring Sale;Premium;Affiliation;0.19;Autre;189.99;205.43;0.5;0.91
+01/04/2021;0;0;0;PROD-820;Sol Rétractable;CLI-099;Jeudi;9;Poisson_Avril;Professionnel;Reseaux_Sociaux;0;F;2990.00;3140.00;1.4;0.47
+03/04/2021;1;0;0;PROD-512;Miroir de Salle de Bain;CLI-144;Samedi;11;Paques;Particulier;Influenceurs;10;M;149.90;157.00;1.6;0.42
+18/04/2021;0;0;0;PROD-204;Parure de Coussins;CLI-277;Dimanche;6;Paques;Particulier;None;0;F;57.90;54.25;1.3;7.39
+01/05/2021;1;1;0;PROD-202;Fauteuil Papillon Velours;CLI-088;Samedi;11;Fete_Travail;Particulier;Reseaux_Sociaux;0;F;289.00;304.00;1.6;0.52
+01/05/2021;1;0;0;PROD-3C4D5E6F;Mivari Boulotre;CLI-9C0D1E2F;Saturday;32;Labor Day;Economy;TV;0.15;F;46.75;50.83;0.2;0.35
+15/05/2021;1;0;0;PROD-719;Siége Massant Shiatsu;CLI-045;Samedi;7;Fete_Meres;Professionnel;Influenceurs;15;F;599.00;630.00;1.9;0.41
+05/06/2021;1;0;0;PROD-610;Serre-livres Sculpture;CLI-200;Samedi;7;None;Professionnel;Google_Ads;0;M;39.50;41.00;1.2;0.97
+21/06/2021;0;0;0;PROD-102;Miroir Bohéme 80cm;CLI-043;Lundi;17;Solstice_Ete;Professionnel;Google_Ads;20;M;169.00;178.00;1.9;1.96
+21/06/2021;0;0;0;PROD-4F5A6B7C;Saphin Bioluminescent;CLI-9E0F1A2B;Monday;29;Summer Solstice;Premium;Email;0.23;Autre;193.25;203.78;0.5;0.86
+04/07/2021;1;1;1;PROD-4D5E6F7A;Port de fleurs Design;CLI-9C0D1E2F;Sunday;29;Independence Day;Standard;TV;0.11;M;112.45;125.67;1.2;0.64
+07/07/2021;1;0;0;PROD-844;Bureau Algues Marines;CLI-256;Samedi;16;Solstice_Ete;Professionnel;Influenceurs;0;M;3990.00;4200.00;2.3;0.28
+10/07/2021;1;0;1;PROD-401;Ensemble de Verres Design;CLI-099;Samedi;13;Soldes_Ete;Professionnel;Influenceurs;30;M;43.50;41.00;2.1;0.57
+19/07/2021;0;0;0;PROD-2B6C8D1A;Ensemble Verres Design;CLI-9F0E1D2C;Monday;30;Promo Flash;Standard;Affiliation;0.29;F;16.35;45.37;1.0;0.11
+24/07/2021;1;0;0;PROD-513;Fauteuil de Bureau Ergonomique;CLI-099;Samedi;7;None;Professionnel;Google_Ads;0;F;299.00;315.00;1.0;7.25
+30/07/2021;1;0;0;PROD-707;Suspension Cristaux Swarovski;CLI-045;Vendredi;5;None;Professionnel;Emailing;0;M;899.00;945.00;1.6;0.19
+14/08/2021;1;0;0;PROD-812;Luminaires Plancton;CLI-256;Samedi;13;Solstice_Ete;Professionnel;Reseaux_Sociaux;0;M;2990.00;3140.00;2.2;1.80
+14/08/2021;1;0;0;PROD-624;Parasol Design;CLI-045;Samedi;16;Solstice_Ete;Particulier;Reseaux_Sociaux;0;M;149.90;140.00;2.2;1.47
+15/08/2021;0;0;0;PROD-4E5F6A7B;Campelée Aragis;CLI-9D0E1F2A;Sunday;33;Summer End;Standard;TV;0.12;M;129.45;36.88;0.8;0.69
+22/09/2021;1;0;0;PROD-828;Mobilier équinoxe;CLI-256;Mercredi;11;Equinoxe;Professionnel;Reseaux_Sociaux;0;F;1990.00;2090.00;1.7;0.39
+25/09/2021;1;0;0;PROD-101;Suspension en Rotin Naturel;CLI-211;Samedi;7;None;Particulier;None;0;F;84.99;89.00;0.8;6.32
+31/10/2021;1;0;0;PROD-727;Projecteur Holographique;CLI-200;Samedi;18;Halloween;Professionnel;Influenceurs;0;M;1590.00;1670.00;1.9;5.39
+11/11/2021;0;1;0;PROD-301;Lampe de Chevet Scandinave;CLI-189;Jeudi;8;Armistice;Particulier;Emailing;0;M;84.50;88.75;1.2;0.62
+11/11/2021;0;1;0;PROD-4A5B6C7D;Pablo Laine Macrines;CLI-9F0A1B2C;Thursday;26;Veterans Day;Standard;Search Ads;0.21;F;81.45;86.92;0.8;0.61
+20/11/2021;1;0;0;PROD-804;Lumiére Bioluminescente;CLI-122;Samedi;7;None;Professionnel;Influenceurs;0;F;599.00;630.00;1.5;3.25
+12/12/2021;0;0;0;PROD-7C8D9E0F;Pablo Laine Macrines;CLI-1A2B3C4D;Sunday;27;Holiday Season;Standard;Social Media;0.28;F;87.65;92.14;0.8;0.53
+15/12/2021;0;0;0;PROD-734;Systéme de Cloisons Amovibles;CLI-099;Mercredi;11;Noel;Professionnel;Emailing;15;M;890.00;840.00;2.5;0.58
+24/12/2021;1;0;0;PROD-836;Cristaux Givrés Artificiels;CLI-256;Vendredi;35;Noel;Professionnel;Emailing;0;M;99.90;94.00;3.1;1.96
+31/12/2021;1;0;0;PROD-105;Bibliothéque Modulable Noir;CLI-256;Vendredi;21;Saint_Sylvestre;Professionnel;Reseaux_Sociaux;25;F;349.00;367.00;2.5;2.82
+07/01/2022;1;0;1;PROD-101;Suspension en Rotin Naturel;CLI-112;Vendredi;9;Soldes_Hiver;Particulier;Emailing_Soldes;25;F;82.50;87.00;1.7;0.18
+15/01/2022;1;0;1;PROD-708;Bibliothéque Escalier;CLI-122;Samedi;9;Soldes_Hiver;Particulier;Google_Ads;20;Autre;799.00;750.00;1.9;0.58
+15/01/2022;0;0;0;PROD-9B0C1D2E;Céramique émilie;CLI-5B6C7D8E;Saturday;30;Winter Sale;Premium;Affiliation;0.06;M;142.77;138.56;1.0;0.98
+05/02/2022;1;0;0;PROD-305;Pot de Fleurs Design Terracotta;CLI-122;Samedi;8;Saint_Valentin;Professionnel;Emailing;10;M;35.90;37.75;1.4;0.51
+12/02/2022;1;0;0;PROD-304;Guirlande Lumineuse étoiles;CLI-044;Samedi;15;Saint_Valentin;Professionnel;Influenceurs;10;M;25.50;26.75;1.4;2.47
+14/02/2022;0;0;0;PROD-9E0F1A2B;Saphin Bioluminescent;CLI-5D6E7F8A;Monday;31;Valentine's;Premium;Affiliation;0.19;Autre;189.99;205.43;0.5;0.91
+19/02/2022;1;0;0;PROD-514;Table Basse Verre Trempé;CLI-045;Samedi;15;Saint_Valentin;Particulier;Emailing;5;M;349.00;330.00;1.8;0.28
+08/03/2022;0;0;0;PROD-7A8B9C0D;Port de fleurs Design;CLI-3E4F5A6B;Tuesday;29;Women's Day;Standard;Email;0.19;M;122.35;128.91;1.2;0.73
+12/03/2022;1;0;0;PROD-805;Miroir Déformant Intelligent;CLI-044;Samedi;14;Printemps;Particulier;Emailing;5;M;279.00;265.00;1.6;0.11
+17/03/2022;0;0;0;PROD-728;Revétement Sol Acoustique;CLI-055;Jeudi;12;Printemps;Particulier;None;0;F;89.90;84.00;1.5;0.84
+19/03/2022;1;0;0;PROD-203;Commode Vintage;CLI-199;Samedi;7;Printemps;Particulier;Google_Ads;0;F;189.00;199.50;1.2;0.78
+22/03/2022;0;0;0;PROD-611;Plateau de Service Bois;CLI-144;Mardi;9;Printemps;Particulier;Emailing;5;F;49.90;46.00;1.3;0.19
+10/04/2022;1;0;0;PROD-625;Fontaine d'Intérieur;CLI-122;Dimanche;9;Paques;Professionnel;Google_Ads;10;F;299.00;315.00;1.7;1.55
+15/04/2022;1;0;0;PROD-204;Parure de Coussins;CLI-120;Vendredi;10;Paques;Particulier;Google_Ads;15;F;61.90;58.00;1.5;0.52
+16/04/2022;1;0;0;PROD-829;Solarium Domestique;CLI-044;Samedi;14;Paques;Particulier;Google_Ads;5;M;5990.00;6300.00;1.9;1.80
+22/04/2022;0;0;0;PROD-9F0A1B2C;Protection Panoramique;CLI-3A4B5C6D;Friday;26;Earth Day;Premium;Email;0.16;Autre;163.21;112.57;1.2;0.91
+01/05/2022;0;1;0;PROD-401;Ensemble de Verres Design;CLI-087;Dimanche;11;Fete_Travail;Professionnel;None;0;M;42.90;40.25;1.3;0.59
+20/05/2022;1;0;0;PROD-709;Spa d'Extérieur Design;CLI-144;Samedi;3;Fete_Meres;Professionnel;Reseaux_Sociaux;0;F;4990.00;5250.00;2.0;6.21
+28/05/2022;1;0;0;PROD-515;Lampe de Lecture LED;CLI-211;Samedi;10;None;Professionnel;Reseaux_Sociaux;0;F;89.90;84.00;1.4;0.47
+30/05/2022;0;1;0;PROD-1D2E3F4A;Céramique émilie;CLI-5F6A7B8C;Monday;32;Memorial Day;Premium;Search Ads;0.09;M;149.25;139.88;1.0;0.92
+18/06/2022;1;0;0;PROD-102;Miroir Bohéme 80cm;CLI-200;Samedi;16;Solstice_Ete;Professionnel;Reseaux_Sociaux;0;Autre;174.00;183.00;1.9;12.62
+04/07/2022;1;1;1;PROD-9D0E1F2A;Ensemble Verres Design;CLI-7C8D9E0F;Monday;30;Independence Day;Standard;Affiliation;0.29;F;16.35;45.37;1.0;0.11
+14/07/2022;1;1;1;PROD-303;Plaid en Laine Mérinos;CLI-231;Jeudi;14;Soldes_Ete;Particulier;Reseaux_Sociaux;35;F;69.90;73.50;2.1;0.74
+22/07/2022;1;0;0;PROD-720;Systéme Ombrage Automatique;CLI-122;Samedi;11;Solstice_Ete;Particulier;Google_Ads;0;F;1290.00;1355.00;2.1;0.92
+30/07/2022;1;0;0;PROD-837;Fauteuil énergétique;CLI-088;Samedi;11;None;Particulier;None;0;F;1590.00;1500.00;1.8;0.50
+08/08/2022;0;0;0;PROD-5D9A0B1C;Ensemble Verres Design;CLI-4C5D6E7F;Monday;28;Summer Sale;Standard;Email;0.25;F;15.99;42.18;1.0;0.38
+14/08/2022;0;0;0;PROD-303;Plaid en Laine Mérinos;CLI-289;Dimanche;5;None;Particulier;None;0;M;72.90;76.50;0.9;3.43
+19/08/2022;1;0;0;PROD-821;Cloison Sonore Animale;CLI-256;Samedi;13;None;Particulier;Google_Ads;0;M;1290.00;1355.00;1.9;3.61
+03/09/2022;0;0;0;PROD-105;Bibliothéque Modulable Noir;CLI-178;Samedi;5;Rentree;Professionnel;Emailing;10;Autre;359.00;378.00;1.1;0.92
+09/09/2022;0;0;0;PROD-735;Sol Rétro-éclairé;CLI-200;Vendredi;14;None;Particulier;Google_Ads;0;F;199.90;188.00;1.6;3.19
+22/09/2022;0;0;0;PROD-9A0B1C2D;Ensemble Verres Design;CLI-3F4A5B6C;Thursday;34;Autumn Equinox;Standard;Social Media;0.28;F;19.75;48.96;1.0;0.49
+01/10/2022;1;0;0;PROD-612;Miroir Sol étoilé;CLI-256;Samedi;14;None;Professionnel;Reseaux_Sociaux;0;Autre;199.00;210.00;1.7;2.62
+15/10/2022;1;0;0;PROD-105;Bibliothéque Modulable Noir;CLI-256;Samedi;12;Halloween;Professionnel;Emailing;20;F;369.00;388.00;1.8;1.07
+31/10/2022;1;0;0;PROD-204;Parure de Coussins Halloween;CLI-065;Lundi;26;Halloween;Particulier;Influenceurs;15;M;59.90;62.75;1.7;1.88
+31/10/2022;0;0;0;PROD-6E7F8A9B;Saphi NFT;CLI-4A5B6C7D;Monday;33;Halloween;Premium;TV;0.27;F;105.73;190.22;1.0;0.76
+11/11/2022;1;1;0;PROD-813;Coffreé  Outils Designer;CLI-088;Samedi;8;Armistice;Particulier;Influenceurs;0;F;490.00;515.00;1.3;0.26
+03/12/2022;1;0;0;PROD-710;Cheminée éthanol Murale;CLI-099;Samedi;7;Noel;Particulier;Influenceurs;15;M;1490.00;1570.00;2.8;2.35
+18/12/2022;0;0;0;PROD-845;Sapin Bioluminescent;CLI-055;Dimanche;27;Noel;Particulier;Emailing;0;F;499.00;525.00;3.3;4.61
+22/12/2022;0;0;0;PROD-743;Sapin NFT Interactif;CLI-200;Jeudi;35;Noel;Particulier;Google_Ads;0;M;199.00;210.00;3.2;1.03
+24/12/2022;0;0;0;PROD-302;Bougeoir en Céramique émaillée;CLI-299;Samedi;33;Noel;Professionnel;Google_Ads;20;F;46.90;49.00;3.0;0.58
+25/12/2022;1;1;1;PROD-4F9A0B5C;Protection Panoramique;CLI-3C4D5E6F;Sunday;34;Christmas;Premium;TV;0.21;Autre;172.56;102.61;1.2;0.68
+01/01/2023;1;1;1;PROD-8E7F3D2C;Coussins Halloween;CLI-9D0E1F2A;Sunday;33;New Year;Premium;Social Media;0.07;M;185.33;170.55;0.5;0.47
+06/01/2023;1;0;1;PROD-103;Table Basse en Chéne Massif;CLI-144;Vendredi;11;Soldes_Hiver;Particulier;None;0;F;148.00;155.00;1.6;0.26
+07/01/2023;1;0;1;PROD-806;Chaise Orageuse;CLI-199;Samedi;9;Soldes_Hiver;Professionnel;Google_Ads;15;F;890.00;840.00;1.7;0.98
+18/01/2023;0;0;1;PROD-501;Tapis Tressé Jute;CLI-033;Mercredi;11;Soldes_Hiver;Particulier;Emailing;25;F;104.99;99.00;1.7;3.18
+28/01/2023;1;0;1;PROD-613;Range-Bijoux Artisanal;CLI-099;Samedi;12;Soldes_Hiver;Particulier;Influenceurs;20;M;69.00;65.00;1.8;0.79
+14/02/2023;0;0;0;PROD-729;Coffre-fort Design;CLI-033;Mardi;8;Saint_Valentin;Professionnel;Emailing;10;F;490.00;515.00;1.6;2.27
+14/02/2023;0;0;0;PROD-202;Fauteuil Papillon Velours;CLI-088;Mardi;5;None;Professionnel;Google_Ads;0;M;289.00;304.00;1.2;0.58
+14/02/2023;0;0;0;PROD-3D4E5F6A;Pablo Laine Macrines;CLI-7D8E9F0A;Wednesday;30;Valentine's;Standard;Social Media;0.22;F;85.99;90.45;0.8;0.59
+11/03/2023;1;0;0;PROD-516;Set de Vaisselle éco;CLI-122;Samedi;12;Printemps;Particulier;Influenceurs;0;M;129.00;120.00;1.7;2.35
+18/03/2023;1;0;0;PROD-305;Pot de Fleurs Design Terracotta;CLI-122;Samedi;8;Printemps;Particulier;Influenceurs;10;F;36.90;38.75;1.3;0.92
+25/03/2023;1;0;0;PROD-503;Suspension Macramé;CLI-045;Samedi;9;Printemps;Professionnel;Google_Ads;0;F;76.50;80.00;1.2;0.43
+12/04/2023;0;0;0;PROD-711;Systéme Audio Intégré;CLI-200;Mercredi;11;Printemps;Professionnel;None;0;F;1290.00;1355.00;1.4;0.70
+14/04/2023;0;0;0;PROD-838;Papier Peint Vivant;CLI-200;Vendredi;12;Printemps;Professionnel;Google_Ads;0;M;199.00;210.00;1.7;3.43
+15/04/2023;1;0;0;PROD-8B2C6D0E;Céramique émilie;CLI-2D3E4F5A;Saturday;40;Spring Sale;Premium;Social Media;0.15;F;156.89;143.76;1.0;0.87
+22/04/2023;1;0;0;PROD-102;Miroir BohÃ¨me 80cm;CLI-211;Samedi;13;Paques;Professionnel;Emailing;15;M;179.00;188.00;1.4;1.33
+01/05/2023;1;1;0;PROD-301;Lampe de Chevet Scandinave;CLI-055;Lundi;16;Fete_Travail;Particulier;Reseaux_Sociaux;0;Autre;89.90;94.25;1.5;1.18
+15/05/2023;0;0;0;PROD-301;Lampe de Chevet Scandinave;CLI-055;Lundi;8;Fete_Meres;Particulier;Reseaux_Sociaux;10;M;92.50;97.00;1.5;0.54
+20/05/2023;1;0;0;PROD-614;Sculpture Murale Moderne;CLI-045;Samedi;6;Fete_Meres;Professionnel;Emailing;10;F;89.90;84.00;1.5;0.84
+10/06/2023;1;0;0;PROD-517;Banc de Jardin Bois;CLI-033;Samedi;18;Solstice_Ete;Professionnel;Google_Ads;0;F;199.00;210.00;2.0;1.18
+17/06/2023;0;0;0;PROD-104;CanapÃ© d'Angle Velours;CLI-276;Samedi;22;Solstice_Ete;Professionnel;Google_Ads;30;F;789.00;750.00;2.0;0.98
+21/06/2023;0;0;0;PROD-1F2A3B4C;Campelée Aragis;CLI-9B0C1D2E;Wednesday;26;Summer Solstice;Standard;Email;0.13;M;135.99;38.46;0.8;0.67
+30/06/2023;0;0;0;PROD-814;RevÃªtement Auto-nettoyant;CLI-200;Vendredi;15;None;Professionnel;Emailing;0;M;89.90;84.00;1.4;2.62
+04/07/2023;1;1;1;PROD-3B4C5D6E;Coussins Halloween;CLI-7E8F9A0B;Tuesday;25;Independence Day;Economy;Search Ads;0.03;M;170.33;158.24;0.5;0.58
+07/07/2023;1;0;0;PROD-736;Plafond Ã‰toilÃ© Fibre Optique;CLI-055;Samedi;16;Solstice_Ete;Professionnel;Reseaux_Sociaux;0;M;2990.00;3140.00;2.2;0.58
+14/07/2023;1;1;1;PROD-101;Suspension en Rotin Naturel;CLI-133;Vendredi;15;Soldes_Ete;Particulier;Influenceurs;25;M;86.00;90.50;2.1;4.77
+22/07/2023;1;0;0;PROD-202;Fauteuil Papillon Velours;CLI-088;Samedi;14;Solstice_Ete;Professionnel;Influenceurs;0;F;309.00;325.00;1.9;0.56
+08/08/2023;0;0;0;PROD-846;RevÃªtement Ã‰nergÃ©tique;CLI-200;Mardi;18;None;Professionnel;None;0;M;89.90;84.00;1.2;1.53
+12/08/2023;1;0;0;PROD-615;Porte-parapluies Design;CLI-211;Dimanche;8;Solstice_Ete;Particulier;None;0;M;109.00;115.00;1.9;0.56
+15/08/2023;0;0;0;PROD-3C4D5E6F;Mivari Boulotre;CLI-1C2D3E4F;Tuesday;35;Summer End;Economy;TV;0.14;F;45.33;51.25;0.2;0.39
+25/08/2023;0;0;0;PROD-712;Ã‰tagÃ¨res MagnÃ©tiques;CLI-055;Vendredi;14;None;Particulier;Emailing;5;M;89.90;84.00;1.2;0.99
+02/09/2023;0;0;0;PROD-401;Ensemble de Verres Design;CLI-244;Samedi;6;Rentree;Professionnel;None;0;F;44.50;41.75;1.0;0.62
+02/09/2023;0;0;0;PROD-5E6F7A8B;Mivari Boulotre;CLI-9E0F1A2B;Saturday;28;End of Summer;Economy;Affiliation;0.14;F;48.33;55.91;0.2;0.33
+15/09/2023;0;0;0;PROD-744;Peinture Thermochrome;CLI-055;Vendredi;18;None;Professionnel;None;0;F;49.90;47.00;1.2;0.35
+16/09/2023;1;0;0;PROD-401;Ensemble de Verres Design;CLI-099;Samedi;6;Rentree;Particulier;None;0;M;46.50;43.75;0.8;0.65
+31/10/2023;0;0;0;PROD-303;Plaid en Laine MÃ©rinos;CLI-097;Mardi;29;Halloween;Particulier;Emailing;15;F;74.90;78.50;1.8;0.33
+31/10/2023;0;0;0;PROD-3E4F5A6B;Protection Panoramique;CLI-2A3B4C5D;Tuesday;34;Halloween;Premium;TV;0.21;Autre;172.56;102.61;1.2;0.68
+01/11/2023;0;0;0;PROD-830;Cendrier Volant;CLI-200;Mercredi;8;Halloween;Professionnel;Emailing;0;F;149.90;141.00;1.5;1.17
+11/11/2023;1;1;0;PROD-203;Commode Vintage;CLI-188;Samedi;7;Armistice;Professionnel;None;0;M;194.00;204.00;1.2;1.68
+11/11/2023;1;0;1;PROD-2D3E4F5A;Saphin Bioluminescent;CLI-7F8A9B0C;Saturday;34;Single's Day;Premium;Social Media;0.25;Autre;187.65;201.34;0.5;0.84
+30/11/2023;0;0;0;PROD-721;Peinture Photocatalytique;CLI-200;Jeudi;20;Black_Friday;Professionnel;Emailing;30;M;49.90;46.00;1.8;0.26
+10/12/2023;0;0;0;PROD-626;Calendrier de l'Avent;CLI-099;Dimanche;25;Noel;Particulier;Influenceurs;0;M;59.90;63.00;2.8;0.32
+15/12/2023;0;0;0;PROD-822;Neige Artificielle éternelle;CLI-055;Vendredi;22;Noel;Professionnel;Influenceurs;0;F;199.00;210.00;3.0;0.97
+24/12/2023;0;0;0;PROD-302;Bougeoir en Céramique émaillée;CLI-266;Dimanche;37;Noel;Particulier;Reseaux_Sociaux;20;M;48.50;50.75;3.1;0.26
+07/01/2024;1;0;1;PROD-105;Bibliothéque Modulable Noir;CLI-154;Dimanche;13;Soldes_Hiver;Professionnel;Emailing_Soldes;30;F;379.00;399.00;1.8;1.89
+13/01/2024;1;0;1;PROD-518;Tapis de Yoga Design;CLI-088;Samedi;8;Soldes_Hiver;Particulier;Emailing;25;M;69.90;66.00;1.3;0.78
+25/01/2024;0;0;1;PROD-502;Cadre Photo Bambou;CLI-121;Jeudi;10;Soldes_Hiver;Professionnel;Emailing;15;F;30.50;32.00;1.4;0.36
+30/01/2024;0;0;1;PROD-713;Lumiére Circadienne;CLI-033;Mardi;8;Soldes_Hiver;Professionnel;Google_Ads;25;F;159.00;150.00;1.7;1.32
+03/02/2024;1;0;0;PROD-616;Set de Dessous de Verre;CLI-033;Samedi;11;None;Professionnel;Google_Ads;0;F;34.90;32.00;1.0;0.44
+10/02/2024;1;0;0;PROD-304;Guirlande Lumineuse étoiles;CLI-022;Samedi;4;None;Particulier;Google_Ads;0;M;26.99;28.25;1.1;0.54
+29/02/2024;0;0;0;PROD-815;Horloge a  Parfum;CLI-122;Jeudi;11;None;Particulier;None;0;F;179.00;190.00;1.0;1.14
+16/03/2024;1;0;0;PROD-204;Parure de Coussins Printaniers;CLI-177;Samedi;18;Printemps;Professionnel;Influenceurs;10;F;64.40;60.25;1.3;0.42
+05/04/2024;0;0;0;PROD-305;Pot de Fleurs Design Terracotta;CLI-122;Vendredi;12;Paques;Particulier;Google_Ads;0;M;37.90;39.75;1.3;0.38
+18/04/2024;0;0;0;PROD-722;Carrelage Lumineux;CLI-055;Vendredi;15;Paques;Particulier;Reseaux_Sociaux;0;F;99.90;94.00;1.7;0.85
+20/04/2024;1;0;0;PROD-202;Fauteuil Papillon Velours;CLI-299;Samedi;8;Paques;Particulier;Emailing;15;Autre;299.00;314.00;1.5;1.47
+27/04/2024;1;0;0;PROD-519;Suspension Art Nouveau;CLI-256;Samedi;11;None;Professionnel;None;0;F;179.00;190.00;1.5;1.14
+01/05/2024;1;1;0;PROD-737;Mur d'Eau Intérieur;CLI-033;Mercredi;8;Fete_Travail;Particulier;Influenceurs;0;F;5990.00;6300.00;1.9;0.30
+01/05/2024;1;1;0;PROD-102;Miroir Bohéme 80cm;CLI-111;Mercredi;20;Fete_Travail;Professionnel;Reseaux_Sociaux;0;M;189.00;199.00;1.6;0.49
+05/05/2024;0;0;0;PROD-847;Mobilier Pneumatique;CLI-033;Dimanche;10;None;Particulier;Google_Ads;0;F;1290.00;1355.00;1.8;5.86
+06/06/2024;0;0;0;PROD-823;Mobilier Origami;CLI-200;Jeudi;9;Anniversaire_DDay;Particulier;Emailing;0;M;890.00;840.00;1.5;2.40
+10/06/2024;0;0;0;PROD-714;Bureau électrique Assis-Debout;CLI-211;Lundi;6;Solstice_Ete;Particulier;Reseaux_Sociaux;0;M;790.00;830.00;1.8;1.86
+15/06/2024;1;0;0;PROD-101;Suspension en Rotin Naturel;CLI-211;Samedi;18;Solstice_Ete;Professionnel;Reseaux_Sociaux;0;F;94.99;99.50;2.0;1.61
+22/06/2024;1;0;0;PROD-617;Fauteuil Pliant Bambou;CLI-088;Samedi;16;Solstice_Ete;Particulier;Reseaux_Sociaux;0;M;139.00;130.00;2.0;0.28
+29/06/2024;1;0;1;PROD-305;Pot de Fleurs Design Terracotta;CLI-088;Samedi;27;Soldes_Ete;Particulier;Google_Ads;35;F;38.90;40.75;2.3;0.30
+07/07/2024;1;0;0;PROD-831;Suspension Tornade;CLI-055;Dimanche;16;Solstice_Ete;Particulier;Influenceurs;0;M;1290.00;1355.00;2.1;0.17
+14/07/2024;0;1;1;PROD-103;Table Basse en Chéne Massif;CLI-199;Dimanche;17;Soldes_Ete;Professionnel;Influenceurs;25;M;155.00;163.00;2.2;1.26
+20/07/2024;1;0;0;PROD-627;Hamac d'Intérieur;CLI-211;Samedi;14;None;Professionnel;None;0;F;179.00;190.00;1.9;0.35
+03/08/2024;1;0;0;PROD-807;Parfum d'Ambiance Spatial;CLI-055;Samedi;6;None;Particulier;Reseaux_Sociaux;0;M;69.90;66.00;1.3;0.30
+08/08/2024;0;0;0;PROD-745;Mobilier en Aérogel;CLI-033;Vendredi;7;None;Particulier;Reseaux_Sociaux;0;M;2990.00;3140.00;1.8;3.77
+20/08/2024;0;0;0;PROD-303;Plaid en Laine Mérinos;CLI-289;Mardi;6;None;Particulier;None;0;M;77.90;81.75;0.7;0.33
+07/09/2024;1;0;0;PROD-301;Lampe de Chevet Scandinave;CLI-255;Samedi;5;Rentree;Particulier;None;0;F;92.50;97.00;1.0;0.37
+21/09/2024;1;0;0;PROD-730;Systéme de Stockage Rotatif;CLI-211;Samedi;15;Equinoxe;Particulier;Google_Ads;0;M;290.00;275.00;1.7;0.48
+25/10/2024;1;0;0;PROD-105;Bibliothéque Modulable Noir;CLI-256;Vendredi;15;Halloween;Professionnel;Emailing;25;F;409.00;430.00;1.9;0.52
+31/10/2024;1;0;0;PROD-401;Ensemble de Verres Design;CLI-144;Jeudi;32;Halloween;Professionnel;Emailing;15;M;46.40;43.75;1.9;0.18
+11/11/2024;1;1;0;PROD-839;Coffre-fort Biométrique;CLI-055;Lundi;9;Armistice;Particulier;Reseaux_Sociaux;0;F;1990.00;2090.00;1.6;2.09
+11/11/2024;1;1;0;PROD-104;Canapé d'Angle Velours;CLI-077;Lundi;10;Armistice;Particulier;None;0;M;819.00;780.00;1.3;1.52
+30/11/2024;1;0;0;PROD-618;Tapis de Bain Naturel;CLI-122;Samedi;13;Black_Friday;Professionnel;Emailing;30;F;54.90;58.00;1.8;0.20
+24/12/2024;0;0;0;PROD-302;Bougeoir en Céramique émaillée;CLI-211;Mardi;41;Noel;Professionnel;Reseaux_Sociaux;20;F;51.50;54.00;3.2;0.18
+05/01/2025;1;0;1;PROD-832;Canapé  Magnétique;CLI-033;Samedi;13;Soldes_Hiver;Professionnel;None;25;F;2990.00;3140.00;1.8;1.88
+05/01/2025;1;0;1;PROD-101;Suspension en Rotin Naturel;CLI-188;Dimanche;14;Soldes_Hiver;Particulier;Emailing_Soldes;30;M;89.99;94.50;1.8;0.26
+10/01/2025;0;0;1;PROD-723;Meuble TV Flottant;CLI-033;Samedi;13;Soldes_Hiver;Professionnel;Influenceurs;20;M;690.00;650.00;1.9;0.85
+10/01/2025;0;0;1;PROD-203;Commode Vintage;CLI-099;Samedi;9;Soldes_Hiver;Professionnel;Reseaux_Sociaux;15;F;199.00;209.00;1.5;0.51
+08/02/2025;0;0;0;PROD-204;Parure de Coussins;CLI-120;Samedi;11;Saint_Valentin;Particulier;Influenceurs;15;F;69.99;65.50;1.5;0.26
+14/02/2025;0;0;0;PROD-848;Céur Lumineux Pulsatile;CLI-211;Vendredi;22;Saint_Valentin;Professionnel;Reseaux_Sociaux;15;M;590.00;555.00;1.7;0.64
+14/02/2025;0;0;0;PROD-303;Plaid en Laine Mérinos;CLI-044;Vendredi;25;Saint_Valentin;Particulier;Influenceurs;10;M;74.90;78.50;1.6;0.19
+03/03/2025;0;0;0;PROD-715;Purificateur Air Design;CLI-256;Lundi;10;Printemps;Professionnel;Influenceurs;0;F;459.00;480.00;1.5;0.85
+15/03/2025;1;0;0;PROD-619;Lustre Cristal Moderne;CLI-055;Samedi;9;Printemps;Particulier;Influenceurs;5;M;459.00;480.00;1.4;0.97
+21/03/2025;1;0;0;PROD-824;Jardin Minéral Zen;CLI-033;Samedi;17;Printemps;Professionnel;Reseaux_Sociaux;0;F;2490.00;2340.00;1.8;1.99
+22/03/2025;1;0;0;PROD-105;Bibliothéque Modulable Noir;CLI-155;Samedi;8;Printemps;Professionnel;Google_Ads;0;F;399.00;420.00;1.2;0.94
+12/04/2025;1;0;0;PROD-102;Miroir Bohéme 80cm;CLI-200;Samedi;14;Paques;Professionnel;Google_Ads;0;M;209.00;220.00;1.7;0.41
+18/04/2025;0;0;0;PROD-204;Parure de Coussins;CLI-266;Vendredi;5;None;Particulier;None;0;M;64.99;60.90;1.0;0.33
+19/04/2025;1;0;0;PROD-808;Table évolutive;CLI-211;Samedi;12;Paques;Professionnel;Influenceurs;0;F;1290.00;1355.00;1.9;1.71
+01/05/2025;1;1;0;PROD-304;Guirlande Lumineuse étoiles;CLI-178;Jeudi;16;Fete_Travail;Professionnel;Emailing;20;Autre;27.99;29.50;1.4;0.15
+15/05/2025;0;0;0;PROD-628;Souffleur de Verre Artisanal;CLI-256;Jeudi;8;Fete_Meres;Particulier;Emailing;5;M;349.00;330.00;1.5;0.85
+30/05/2025;1;0;0;PROD-503;Suspension Macramé;CLI-045;Vendredi;16;Fete_Meres;Particulier;Reseaux_Sociaux;0;Autre;79.50;83.50;1.6;0.26
+15/06/2025;0;0;0;PROD-840;Climatiseur Sculptural;CLI-033;Dimanche;7;None;Professionnel;Influenceurs;0;M;2990.00;3140.00;2.0;3.77
+21/06/2025;1;0;0;PROD-746;Terrasse Modulable;CLI-211;Samedi;20;Solstice_Ete;Professionnel;Influenceurs;0;F;8990.00;9450.00;2.3;5.97
+21/06/2025;1;0;0;PROD-102;Miroir Bohéme 80cm;CLI-233;Samedi;30;Solstice_Ete;Particulier;Reseaux_Sociaux;25;F;199.00;210.00;2.1;0.34
+05/07/2025;0;0;1;PROD-620;Set de Saladiers Verre;CLI-200;Samedi;14;Soldes_Ete;Professionnel;Google_Ads;25;F;79.90;75.00;2.1;0.25
+14/07/2025;1;1;1;PROD-401;Ensemble de Verres Design;CLI-122;Dimanche;20;Soldes_Ete;Professionnel;Influenceurs;40;M;49.99;47.00;2.3;0.19
+15/08/2025;1;1;0;PROD-202;Fauteuil Papillon Velours;CLI-089;Samedi;12;Assomption;Particulier;None;0;F;309.00;325.00;1.7;0.73
+22/08/2025;0;0;0;PROD-301;Lampe de Chevet Scandinave;CLI-055;Vendredi;9;None;Professionnel;None;0;F;99.90;105.00;1.0;0.36
+05/09/2025;0;0;0;PROD-301;Lampe de Chevet Scandinave;CLI-144;Vendredi;7;Rentree;Professionnel;Google_Ads;10;M;94.90;99.75;1.1;0.42
+12/09/2025;0;0;0;PROD-520;Plateau de Chevet;CLI-099;Vendredi;9;Rentree;Particulier;Reseaux_Sociaux;5;M;59.90;56.00;1.1;0.27
+20/09/2025;1;0;0;PROD-401;Ensemble de Verres Design;CLI-099;Samedi;7;Rentree;Particulier;Emailing;5;M;52.50;49.50;0.9;0.30
+31/10/2025;1;0;0;PROD-816;Projection Fantomatique;CLI-055;Vendredi;28;Halloween;Professionnel;Reseaux_Sociaux;30;M;390.00;370.00;2.7;0.51
+31/10/2025;1;0;0;PROD-305;Pot de Fleurs Design Terracotta;CLI-277;Vendredi;36;Halloween;Particulier;Emailing;15;F;39.99;42.00;1.9;0.19
+11/11/2025;1;1;0;PROD-738;Porte Blindée Design;CLI-211;Mardi;10;Armistice;Professionnel;Emailing;0;M;2990.00;3140.00;1.7;3.52
+11/11/2025;1;1;0;PROD-103;Table Basse en Chêne Massif;CLI-199;Mardi;10;Armistice;Professionnel;None;0;M;164.00;172.00;1.3;0.33
+15/11/2025;0;0;0;PROD-501;Tapis Tressé Jute;CLI-033;Samedi;13;Black_Friday;Professionnel;Influenceurs;35;F;119.99;113.00;1.8;0.48
+24/12/2025;0;0;0;PROD-104;Canapéé d'Angle Velours;CLI-055;Mercredi;43;Noel;Particulier;Reseaux_Sociaux;20;Autre;849.00;810.00;3.3;1.00
+31/12/2025;0;0;0;PROD-302;Bougeoir en Céramique émaillée;CLI-211;Mercredi;28;Saint_Sylvestre;Professionnel;Emailing;25;F;53.90;56.50;2.8;0.38
