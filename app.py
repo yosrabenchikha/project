@@ -2,232 +2,293 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
-from statsmodels.tsa.statespace.sarimax import SARIMAX
-from statsmodels.tsa.seasonal import seasonal_decompose
-import plotly.express as px
-import plotly.graph_objects as go
+from prophet import Prophet
+from prophet.plot import plot_plotly, plot_components_plotly
+import plotly.graph_objs as go
+from datetime import datetime
 
 # Configuration de la page
-st.set_page_config(page_title="Prévision des Ventes", layout="wide", page_icon="📊")
-st.title("📈 Tableau de Bord des Prévisions de Ventes")
+st.set_page_config(
+    page_title="Prévision des Ventes - Saisonnalité & Tendances Clients",
+    page_icon="📊",
+    layout="wide"
+)
 
-# Chargement des données
+# Style CSS personnalisé
+st.markdown("""
+<style>
+    .main-title {color: #1f77b4; text-align: center; font-size: 2.5rem;}
+    .section-header {color: #2ca02c; border-bottom: 2px solid #eee; padding: 0.5rem 0;}
+    .positive {color: #00cc00;}
+    .negative {color: #ff0000;}
+    .metric-box {background-color: #f9f9f9; border-radius: 10px; padding: 15px; margin: 10px 0;}
+</style>
+""", unsafe_allow_html=True)
+
+# Titre principal
+st.markdown('<h1 class="main-title">📈 Prévision des Ventes - Saisonnalité & Tendances Clients</h1>', unsafe_allow_html=True)
+
+# Téléchargement des données
+st.sidebar.header("1. Chargement des Données")
+uploaded_file = st.sidebar.file_uploader(
+    "Téléverser un fichier CSV/Excel",
+    type=["csv", "xlsx"],
+    help="Colonnes requises : Date (format JJ/MM/AAAA), Ventes"
+)
+
+# Paramètres de prévision
+st.sidebar.header("2. Paramètres de Prévision")
+periods = st.sidebar.slider(
+    "Périodes futures à prévoir (jours)",
+    min_value=7,
+    max_value=365,
+    value=90,
+    help="Nombre de jours dans le futur pour la prévision"
+)
+
+seasonality_mode = st.sidebar.selectbox(
+    "Mode de Saisonnalité",
+    ["additive", "multiplicative"],
+    index=1,
+    help="Modèle additif ou multiplicatif pour les variations saisonnières"
+)
+
+confidence_interval = st.sidebar.slider(
+    "Intervalle de Confiance",
+    min_value=0.80,
+    max_value=0.99,
+    value=0.95,
+    step=0.01,
+    help="Niveau de certitude des prévisions"
+)
+
+# Exemple de données
 @st.cache_data
-def load_data():
-     df = pd.read_csv(
-    "database.csv",
-    sep=";",
-    encoding='latin1',         # Encodage pour caractères français
+def load_sample_data():
+    dates = pd.date_range(start="2020-01-01", end="2023-12-31", freq='D')
+    sales = np.random.poisson(lam=100, size=len(dates)) * np.sin(np.arange(len(dates)) * 0.1) + 200
+    return pd.DataFrame({'Date': dates, 'Ventes': sales})
 
-)
-
-df = load_data()
-
-# Sidebar - Contrôles utilisateur
-st.sidebar.header("Paramètres de Visualisation")
-selected_segment = st.sidebar.selectbox("Segment Client", options=df['segment'].unique())
-forecast_months = st.sidebar.slider("Mois de Prévision", 1, 24, 12)
-show_confidence = st.sidebar.checkbox("Afficher l'intervalle de confiance", value=True)
-
-# Section 1: Graphique temporel interactif
-st.header("Historique des Ventes et Prévisions")
-col1, col2 = st.columns([3, 1])
-
-with col1:
-    # Filtrage des données
-    segment_data = df[df['segment'] == selected_segment]
+# Traitement des données
+def process_data(df):
+    df = df.copy()
+    if 'Date' not in df.columns:
+        st.error("Erreur : La colonne 'Date' est introuvable dans le dataset.")
+        return None
     
-    # Création du graphique
-    fig = go.Figure()
+    # Conversion des dates et tri
+    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+    df = df.dropna(subset=['Date'])
+    df = df.sort_values('Date')
     
-    # Historique des ventes
-    fig.add_trace(go.Scatter(
-        x=segment_data['date'],
-        y=segment_data['ventes'],
-        name='Ventes Réelles',
-        line=dict(color='#1f77b4', width=3)
-    ))
+    # Vérification des données de ventes
+    if 'Ventes' not in df.columns:
+        st.error("Erreur : La colonne 'Ventes' est introuvable dans le dataset.")
+        return None
     
-    # Prévisions
-    fig.add_trace(go.Scatter(
-        x=segment_data['date'],
-        y=segment_data['prevision'],
-        name='Prévisions',
-        line=dict(color='#ff7f0e', width=3, dash='dot')
-    ))
+    return df[['Date', 'Ventes']].rename(columns={'Date': 'ds', 'Ventes': 'y'})
+
+# Interface principale
+if uploaded_file is None:
+    st.info("ℹ️ Téléversez un fichier ou utilisez les données d'exemple pour commencer")
+    use_sample = st.checkbox("Utiliser les données d'exemple")
     
-    if show_confidence:
-        # Intervalle de confiance (simulé)
-        upper_bound = segment_data['prevision'] * 1.1
-        lower_bound = segment_data['prevision'] * 0.9
-        fig.add_trace(go.Scatter(
-            x=segment_data['date'],
-            y=upper_bound,
-            line=dict(width=0),
-            showlegend=False
-        ))
-        fig.add_trace(go.Scatter(
-            x=segment_data['date'],
-            y=lower_bound,
-            fill='tonexty',
-            fillcolor='rgba(255, 127, 14, 0.2)',
-            line=dict(width=0),
-            name='Intervalle de confiance'
-        ))
-    
-    # Personnalisation du graphique
-    fig.update_layout(
-        xaxis_title='Date',
-        yaxis_title='Volume des Ventes',
-        hovermode='x unified',
-        template='plotly_white'
-    )
-    st.plotly_chart(fig, use_container_width=True)
+    if use_sample:
+        df = load_sample_data()
+        st.success("Données d'exemple chargées avec succès!")
+    else:
+        st.stop()
+else:
+    # Lecture du fichier uploadé
+    try:
+        if uploaded_file.name.endswith('.csv'):
+            df = pd.read_csv(uploaded_file)
+        elif uploaded_file.name.endswith(('.xlsx', '.xls')):
+            df = pd.read_excel(uploaded_file)
+    except Exception as e:
+        st.error(f"Erreur de lecture du fichier: {str(e)}")
+        st.stop()
 
-with col2:
-    # KPI clés
-    st.metric("Dernières ventes", f"{segment_data['ventes'].iloc[-1]:,} €")
-    st.metric("Prévision moyenne", f"{segment_data['prevision'].mean():.0f} €")
-    st.metric("Croissance prévue", "+8.2%", delta_color="inverse")
-    
-    # Sélecteur de période
-    period = st.radio("Période d'analyse:", ['Mensuelle', 'Trimestrielle', 'Annuelle'])
-    
-    # Téléchargement des données
-    st.download_button(
-        label="Télécharger les données",
-        data=segment_data.to_csv(index=False).encode('utf-8'),
-        file_name=f"ventes_{selected_segment}.csv",
-        mime="text/csv"
-    )
+# Traitement des données
+processed_df = process_data(df)
+if processed_df is None:
+    st.stop()
 
-# Section 2: Analyse saisonnière
-st.header("Analyse Saisonnière")
+# Affichage des données brutes
+st.header("🔍 Exploration des Données")
+st.markdown(f"**Données du {processed_df['ds'].min().strftime('%d/%m/%Y')} au {processed_df['ds'].max().strftime('%d/%m/%Y')}**")
+st.dataframe(processed_df.head(10), height=300)
 
-# Calcul des moyennes saisonnières
-df['saison'] = df['date'].dt.month.map({
-    1: 'Hiver', 2: 'Hiver', 3: 'Printemps', 
-    4: 'Printemps', 5: 'Printemps', 6: 'Été',
-    7: 'Été', 8: 'Été', 9: 'Automne',
-    10: 'Automne', 11: 'Automne', 12: 'Hiver'
-})
+# Statistiques descriptives
+st.subheader("Statistiques Descriptives")
+stats = processed_df.describe().T
+stats['variance'] = processed_df.var()
+st.dataframe(stats.style.format("{:.2f}"))
 
-seasonal_avg = df.groupby(['saison', 'segment'])['ventes'].mean().reset_index()
-
-# Création du graphique à barres
-fig2 = px.bar(
-    seasonal_avg, 
-    x='saison', 
-    y='ventes', 
-    color='segment',
-    barmode='group',
-    category_orders={"saison": ["Hiver", "Printemps", "Été", "Automne"]},
-    labels={'ventes': 'Ventes Moyennes', 'saison': 'Saison'},
-    height=400
-)
-
-# Personnalisation
-fig2.update_layout(
-    title="Ventes Moyennes par Saison et Segment",
+# Analyse temporelle
+st.subheader("Évolution Historique des Ventes")
+fig_raw = go.Figure()
+fig_raw.add_trace(go.Scatter(
+    x=processed_df['ds'], 
+    y=processed_df['y'], 
+    mode='lines+markers',
+    name='Ventes réelles',
+    line=dict(color='#1f77b4', width=2)
+))
+fig_raw.update_layout(
+    xaxis_title='Date',
+    yaxis_title='Volume de Ventes',
+    hovermode='x unified',
     template='plotly_white'
 )
-st.plotly_chart(fig2, use_container_width=True)
+st.plotly_chart(fig_raw, use_container_width=True)
 
-# Section 3: Comparaison segmentée
-st.header("Comparaison par Segment Client")
-
-# Calcul des performances par segment
-segment_perf = df.groupby('segment').agg({
-    'ventes': ['mean', 'sum'],
-    'prevision': 'mean'
-}).reset_index()
-segment_perf.columns = ['Segment', 'Ventes Moyennes', 'Ventes Totales', 'Prévision Moyenne']
-segment_perf['Variation'] = (segment_perf['Prévision Moyenne'] / segment_perf['Ventes Moyennes'] - 1) * 100
-
-# Affichage sous forme de tableau
-st.dataframe(
-    segment_perf.style
-    .format({
-        'Ventes Moyennes': '{:,.0f} €',
-        'Ventes Totales': '{:,.0f} €',
-        'Prévision Moyenne': '{:,.0f} €',
-        'Variation': '{:.1f}%'
-    })
-    .bar(subset=['Variation'], align='mid', color=['#FF9999', '#99FF99'])
-    .set_properties(**{'background-color': '#f8f9fa', 'border': '1px solid #dee2e6'}),
-    use_container_width=True
-)
-
-# Section 4: Analyse détaillée (onglets)
-st.header("Analyse Détaillée")
-tab1, tab2, tab3 = st.tabs(["Tendance", "Saisonnalité", "Résidus"])
-
-with tab1:
-    st.subheader("Décomposition de la Tendance")
-    # Simulation d'une décomposition
-    trend = np.linspace(100, 500, len(segment_data))
-    seasonal = 50 * np.sin(np.linspace(0, 4*np.pi, len(segment_data)))
-    resid = np.random.normal(0, 20, len(segment_data))
-    
-    fig3, axes = plt.subplots(4, 1, figsize=(10, 8), sharex=True)
-    axes[0].plot(segment_data['date'], segment_data['ventes'], label='Original')
-    axes[0].set_title('Ventes Originales')
-    axes[1].plot(segment_data['date'], trend, label='Tendance', color='green')
-    axes[1].set_title('Composante de Tendance')
-    axes[2].plot(segment_data['date'], seasonal, label='Saisonnalité', color='red')
-    axes[2].set_title('Composante Saisonnière')
-    axes[3].plot(segment_data['date'], resid, label='Résidus', color='purple')
-    axes[3].set_title('Résidus')
-    plt.tight_layout()
-    st.pyplot(fig3)
-
-with tab2:
-    st.subheader("Analyse de Saisonnalité")
-    # Heatmap saisonnière
-    df['mois'] = df['date'].dt.month_name()
-    df['annee'] = df['date'].dt.year
-    heatmap_data = df.pivot_table(index='mois', columns='annee', values='ventes', aggfunc='sum')
-    
-    fig4 = px.imshow(
-        heatmap_data,
-        labels=dict(x="Année", y="Mois", color="Ventes"),
-        aspect="auto",
-        color_continuous_scale='Viridis'
+# Entraînement du modèle Prophet
+st.header("⚙️ Modélisation des Prévisions")
+st.markdown("**Configuration du modèle Prophet**")
+with st.spinner('Entraînement du modèle en cours...'):
+    model = Prophet(
+        seasonality_mode=seasonality_mode,
+        yearly_seasonality=True,
+        weekly_seasonality=True,
+        daily_seasonality=False,
+        interval_width=confidence_interval
     )
-    fig4.update_layout(title="Heatmap des Ventes par Mois et Année")
-    st.plotly_chart(fig4, use_container_width=True)
+    model.add_country_holidays(country_name='FR')
+    
+    try:
+        model.fit(processed_df)
+        future = model.make_future_dataframe(periods=periods)
+        forecast = model.predict(future)
+        st.success("Modèle entraîné avec succès!")
+    except Exception as e:
+        st.error(f"Erreur lors de l'entraînement: {str(e)}")
+        st.stop()
 
-with tab3:
-    st.subheader("Analyse des Résidus")
-    # Simulation de résidus
-    resid = np.random.normal(0, 50, len(segment_data))
+# Affichage des prévisions
+st.subheader("📊 Résultats des Prévisions")
+last_date = processed_df['ds'].max()
+forecast_df = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].copy()
+forecast_df['Type'] = ['Historique' if d <= last_date else 'Prévision' for d in forecast_df['ds']]
+
+# Graphique interactif des prévisions
+fig_forecast = plot_plotly(model, forecast, xlabel='Date', ylabel='Ventes')
+fig_forecast.update_layout(
+    legend=dict(orientation="h", yanchor="bottom", y=1.02),
+    hovermode='x unified',
+    title="Prévision des Ventes avec Intervalles de Confiance"
+)
+st.plotly_chart(fig_forecast, use_container_width=True)
+
+# Composantes du modèle
+st.subheader("🧠 Analyse des Composantes du Modèle")
+st.markdown("""
+- **Tendance**: Évolution générale des ventes
+- **Saisonnalité hebdomadaire**: Variations récurrentes chaque semaine
+- **Saisonnalité annuelle**: Variations récurrentes chaque année
+- **Jours fériés**: Impact des jours fériés sur les ventes
+""")
+fig_components = plot_components_plotly(model, forecast)
+st.plotly_chart(fig_components, use_container_width=True)
+
+# Métriques de performance
+st.subheader("📈 Performance du Modèle")
+if len(processed_df) > 30:
+    from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error
+    
+    # Validation sur les 30 derniers jours
+    test_size = min(30, len(processed_df) // 3)
+    test_df = processed_df.iloc[-test_size:]
+    preds = forecast.iloc[-test_size - periods:-periods]['yhat'].values
+    
+    mae = mean_absolute_error(test_df['y'], preds)
+    mape = mean_absolute_percentage_error(test_df['y'], preds) * 100
     
     col1, col2 = st.columns(2)
-    with col1:
-        st.write("**Distribution des Résidus**")
-        fig5 = px.histogram(x=resid, nbins=30, labels={'x': 'Résidus'})
-        st.plotly_chart(fig5, use_container_width=True)
+    col1.metric("MAE (Erreur Absolue Moyenne)", f"{mae:.2f}")
+    col2.metric("MAPE (Erreur Pourcentage Moyenne)", f"{mape:.2f}%", 
+                delta="Bonne performance" if mape < 15 else "Amélioration nécessaire",
+                delta_color="normal")
     
-    with col2:
-        st.write("**QQ-Plot des Résidus**")
-        # QQ-Plot simplifié
-        fig6, ax = plt.subplots(figsize=(6, 4))
-        stats.probplot(resid, dist="norm", plot=ax)
-        ax.set_title('QQ-Plot des Résidus')
-        st.pyplot(fig6)
+    # Graphique de validation
+    fig_val = go.Figure()
+    fig_val.add_trace(go.Scatter(
+        x=test_df['ds'], y=test_df['y'], 
+        name='Ventes Réelles', mode='lines+markers'
+    ))
+    fig_val.add_trace(go.Scatter(
+        x=test_df['ds'], y=preds, 
+        name='Prévisions', mode='lines+markers'
+    ))
+    fig_val.update_layout(
+        title='Validation du Modèle (30 derniers jours)',
+        xaxis_title='Date',
+        yaxis_title='Ventes',
+        template='plotly_white'
+    )
+    st.plotly_chart(fig_val, use_container_width=True)
+else:
+    st.warning("Données insuffisantes pour l'évaluation du modèle (minimum 30 jours requis)")
 
-# Section 5: Téléchargement du rapport
-st.divider()
-st.header("Exporter les Résultats")
-report_format = st.selectbox("Format du rapport", ["PDF", "HTML", "PPTX"])
-if st.button("Générer le Rapport Complet"):
-    with st.spinner("Génération du rapport..."):
-        time.sleep(2)
-        st.success("Rapport généré avec succès!")
-        st.download_button(
-            "Télécharger le rapport",
-            data="Contenu simulé du rapport".encode('utf-8'),
-            file_name=f"rapport_ventes_{datetime.now().strftime('%Y%m%d')}.{report_format.lower()}",
-            mime="application/octet-stream"
-        )
+# Téléchargement des prévisions
+st.subheader("💾 Export des Résultats")
+csv = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].to_csv(index=False).encode('utf-8')
+st.download_button(
+    label="Télécharger les prévisions (CSV)",
+    data=csv,
+    file_name=f"previsions_ventes_{datetime.now().strftime('%Y%m%d')}.csv",
+    mime='text/csv'
+)
+
+# Analyse des tendances clients
+st.header("👥 Analyse des Tendances Clients")
+st.markdown("""
+Cette section permet d'identifier les comportements d'achat récurrents et les opportunités commerciales :
+""")
+
+# Détection automatique des pics
+if 'y' in processed_df.columns:
+    processed_df['month'] = processed_df['ds'].dt.month_name()
+    monthly_sales = processed_df.groupby('month')['y'].sum().reset_index()
+    
+    # Ordre des mois
+    month_order = ['January', 'February', 'March', 'April', 'May', 'June', 
+                  'July', 'August', 'September', 'October', 'November', 'December']
+    monthly_sales['month'] = pd.Categorical(monthly_sales['month'], categories=month_order, ordered=True)
+    monthly_sales = monthly_sales.sort_values('month')
+    
+    # Identification des meilleurs mois
+    best_month = monthly_sales.loc[monthly_sales['y'].idxmax()]
+    
+    col1, col2 = st.columns(2)
+    col1.subheader("Saisonnalité Mensuelle")
+    fig_monthly = go.Figure()
+    fig_monthly.add_trace(go.Bar(
+        x=monthly_sales['month'], 
+        y=monthly_sales['y'],
+        marker_color=['#2ca02c' if m == best_month['month'] else '#1f77b4' for m in monthly_sales['month']]
+    ))
+    fig_monthly.update_layout(
+        xaxis_title='Mois',
+        yaxis_title='Ventes Totales',
+        template='plotly_white'
+    )
+    col1.plotly_chart(fig_monthly, use_container_width=True)
+    
+    col2.subheader("Recommandations Commerciales")
+    col2.markdown(f"""
+    **Périodes clés identifiées :**
+    - 📈 Meilleur mois : **{best_month['month']}** ({best_month['y']:.0f} ventes)
+    - 💡 Période propice pour les promotions
+    - 🎯 Ciblage marketing accru
+    
+    **Stratégies suggérées :**
+    - Développer des offres saisonnières
+    - Adapter le stockage aux pics de demande
+    - Préparer des campagnes marketing 1 mois avant les pics
+    """)
+
+# Footer
+st.markdown("---")
+st.markdown("📆 Application développée avec Streamlit | Prophet | Plotly")
+st.markdown("ℹ️ Les prévisions sont basées sur des modèles statistiques et doivent être interprétées avec d'autres indicateurs métier")
