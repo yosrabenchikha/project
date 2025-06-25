@@ -1,4 +1,36 @@
-subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "--force-reinstall", "-r", "requirements.txt"])
+import sys
+import os
+import platform
+
+# Désactiver les backends interactifs pour Matplotlib
+os.environ['MPLBACKEND'] = 'Agg'  # Doit être avant tout import de matplotlib
+
+# Vérifier et installer les dépendances si nécessaire
+try:
+    import matplotlib
+    import matplotlib.pyplot as plt
+except ImportError:
+    import subprocess
+    import logging
+    
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+    
+    # Installer Matplotlib avec le bon backend
+    install_cmd = [sys.executable, "-m", "pip", "install", "matplotlib==3.8.3"]
+    subprocess.check_call(install_cmd)
+    
+    # Réessayer l'import
+    import matplotlib
+    import matplotlib.pyplot as plt
+
+# Configurer explicitement le backend
+matplotlib.use('agg')
+
+# Désactiver les avertissements de Matplotlib
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="matplotlib")
+
 import streamlit as st
 import pandas as pd
 import numpy as np
