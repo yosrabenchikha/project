@@ -18,7 +18,7 @@ except ImportError:
         "matplotlib==3.8.3", "--no-cache-dir"
     ])
     
-    import matplotlib.pyplot as plt
+
 import plotly.graph_objs as go
 from datetime import datetime
 import io
