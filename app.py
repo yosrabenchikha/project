@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from prophet import Prophet
 from prophet.plot import plot_plotly, plot_components_plotly
 import plotly.graph_objs as go
 from datetime import datetime
