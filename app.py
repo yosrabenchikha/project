@@ -2,7 +2,13 @@ subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "--f
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib
+import io
+from datetime import datetime
+
+# Configuration essentielle pour Streamlit
+matplotlib.use('agg')  # Utiliser le backend non-interactif
+import matplotlib.pyplot as plt 
 import plotly.graph_objs as go
 from datetime import datetime
 import io
