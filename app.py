@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from prophet import Prophet
 from prophet.plot import plot_plotly, plot_components_plotly
 import plotly.graph_objs as go
 from datetime import datetime
+import io
 
 # Configuration de la page
 st.set_page_config(
@@ -33,7 +33,7 @@ st.sidebar.header("1. Chargement des Données")
 uploaded_file = st.sidebar.file_uploader(
     "Téléverser un fichier CSV/Excel",
     type=["csv", "xlsx"],
-    help="Colonnes requises : Date (format JJ/MM/AAAA), Ventes"
+    help="Colonnes requises : date (format JJ/MM/AAAA), quantite_vente"
 )
 
 # Paramètres de prévision
@@ -62,52 +62,79 @@ confidence_interval = st.sidebar.slider(
     help="Niveau de certitude des prévisions"
 )
 
-# Exemple de données
-@st.cache_data
-def load_sample_data():
-    dates = pd.date_range(start="2020-01-01", end="2023-12-31", freq='D')
-    sales = np.random.poisson(lam=100, size=len(dates)) * np.sin(np.arange(len(dates)) * 0.1) + 200
-    return pd.DataFrame({'Date': dates, 'Ventes': sales})
+# Fonction pour charger les données
+def load_data(uploaded_file):
+    if uploaded_file is None:
+        # Charger le fichier par défaut depuis le répertoire
+        try:
+            df = pd.read_csv("database.csv", sep=";")
+            st.info("Chargement du fichier par défaut database.csv")
+            return df
+        except:
+            st.warning("Fichier par défaut non trouvé. Veuillez télécharger un fichier.")
+            return None
+    
+    try:
+        if uploaded_file.name.endswith('.csv'):
+            # Essayer plusieurs séparateurs
+            content = uploaded_file.getvalue().decode('utf-8')
+            try:
+                df = pd.read_csv(io.StringIO(content), sep=";")
+            except:
+                df = pd.read_csv(io.StringIO(content))
+        elif uploaded_file.name.endswith(('.xlsx', '.xls')):
+            df = pd.read_excel(uploaded_file)
+        return df
+    except Exception as e:
+        st.error(f"Erreur de lecture du fichier: {str(e)}")
+        return None
 
 # Traitement des données
 def process_data(df):
+    if df is None:
+        return None
+        
+    # Créer une copie pour éviter les modifications sur l'original
     df = df.copy()
+    
+    # Renommer les colonnes pour standardisation
+    column_mapping = {
+        'date': 'Date',
+        'quantite_vente': 'Ventes'
+    }
+    
+    # Renommer les colonnes si elles existent
+    for original, new in column_mapping.items():
+        if original in df.columns:
+            df.rename(columns={original: new}, inplace=True)
+    
+    # Vérifier les colonnes nécessaires
     if 'Date' not in df.columns:
-        st.error("Erreur : La colonne 'Date' est introuvable dans le dataset.")
+        st.error("Erreur : Aucune colonne de date trouvée. Veuillez vérifier votre fichier.")
         return None
     
-    # Conversion des dates et tri
-    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+    if 'Ventes' not in df.columns:
+        st.error("Erreur : Aucune colonne de ventes trouvée. Veuillez vérifier votre fichier.")
+        return None
+    
+    # Conversion des dates avec format jour/mois/année
+    df['Date'] = pd.to_datetime(df['Date'], dayfirst=True, errors='coerce')
+    
+    # Supprimer les lignes avec dates invalides
     df = df.dropna(subset=['Date'])
+    
+    # Trier par date
     df = df.sort_values('Date')
     
-    # Vérification des données de ventes
-    if 'Ventes' not in df.columns:
-        st.error("Erreur : La colonne 'Ventes' est introuvable dans le dataset.")
-        return None
+    # Agrégation par jour (somme des ventes quotidiennes)
+    df = df.groupby('Date')['Ventes'].sum().reset_index()
     
     return df[['Date', 'Ventes']].rename(columns={'Date': 'ds', 'Ventes': 'y'})
 
-# Interface principale
-if uploaded_file is None:
-    st.info("ℹ️ Téléversez un fichier ou utilisez les données d'exemple pour commencer")
-    use_sample = st.checkbox("Utiliser les données d'exemple")
-    
-    if use_sample:
-        df = load_sample_data()
-        st.success("Données d'exemple chargées avec succès!")
-    else:
-        st.stop()
-else:
-    # Lecture du fichier uploadé
-    try:
-        if uploaded_file.name.endswith('.csv'):
-            df = pd.read_csv(uploaded_file)
-        elif uploaded_file.name.endswith(('.xlsx', '.xls')):
-            df = pd.read_excel(uploaded_file)
-    except Exception as e:
-        st.error(f"Erreur de lecture du fichier: {str(e)}")
-        st.stop()
+# Charger les données
+df = load_data(uploaded_file)
+if df is None:
+    st.stop()
 
 # Traitement des données
 processed_df = process_data(df)
@@ -149,9 +176,9 @@ st.markdown("**Configuration du modèle Prophet**")
 with st.spinner('Entraînement du modèle en cours...'):
     model = Prophet(
         seasonality_mode=seasonality_mode,
-        yearly_seasonality=True,
-        weekly_seasonality=True,
-        daily_seasonality=False,
+        yearly_seasonity=True,
+        weekly_seasonity=True,
+        daily_seasonity=False,
         interval_width=confidence_interval
     )
     model.add_country_holidays(country_name='FR')
@@ -287,6 +314,44 @@ if 'y' in processed_df.columns:
     - Adapter le stockage aux pics de demande
     - Préparer des campagnes marketing 1 mois avant les pics
     """)
+
+# Analyse des produits
+st.subheader("📦 Analyse des Produits")
+if 'nom_produit' in df.columns:
+    top_products = df.groupby('nom_produit')['quantite_vente'].sum().nlargest(10).reset_index()
+    
+    fig_products = go.Figure()
+    fig_products.add_trace(go.Bar(
+        x=top_products['quantite_vente'],
+        y=top_products['nom_produit'],
+        orientation='h',
+        marker_color='#ff7f0e'
+    ))
+    fig_products.update_layout(
+        title='Top 10 des Produits les Plus Vendus',
+        xaxis_title='Quantité Vendue',
+        yaxis_title='Produit',
+        template='plotly_white'
+    )
+    st.plotly_chart(fig_products, use_container_width=True)
+
+# Analyse des segments clients
+st.subheader("👤 Analyse des Segments Clients")
+if 'segment' in df.columns:
+    segment_sales = df.groupby('segment')['quantite_vente'].sum().reset_index()
+    
+    fig_segment = go.Figure()
+    fig_segment.add_trace(go.Pie(
+        labels=segment_sales['segment'],
+        values=segment_sales['quantite_vente'],
+        hole=0.3,
+        marker_colors=['#1f77b4', '#ff7f0e', '#2ca02c']
+    ))
+    fig_segment.update_layout(
+        title='Répartition des Ventes par Segment Client',
+        template='plotly_white'
+    )
+    st.plotly_chart(fig_segment, use_container_width=True)
 
 # Footer
 st.markdown("---")
