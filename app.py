@@ -16,7 +16,7 @@ st.title("📈 Tableau de Bord des Prévisions de Ventes")
 @st.cache_data
 def load_data():
      df = pd.read_csv(
-    "/content/database.csv",
+    "database.csv",
     sep=";",
     encoding='latin1',         # Encodage pour caractères français
 
