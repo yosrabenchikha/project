@@ -1,24 +1,8 @@
+subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "--force-reinstall", "-r", "requirements.txt"])
 import streamlit as st
 import pandas as pd
 import numpy as np
-try:
-    import matplotlib.pyplot as plt
-except ImportError:
-    import subprocess
-    import sys
-    import logging
-    
-    logging.basicConfig(level=logging.INFO)
-    logger = logging.getLogger(__name__)
-    logger.warning("Matplotlib non installé. Installation en cours...")
-    
-    subprocess.check_call([
-        sys.executable, 
-        "-m", "pip", "install", 
-        "matplotlib==3.8.3", "--no-cache-dir"
-    ])
-    
-
+import matplotlib.pyplot as plt
 import plotly.graph_objs as go
 from datetime import datetime
 import io
