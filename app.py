@@ -1,67 +1,43 @@
-import sys
-import os
-import platform
-
-# Désactiver les backends interactifs pour Matplotlib
-os.environ['MPLBACKEND'] = 'Agg'  # Doit être avant tout import de matplotlib
-
-# Vérifier et installer les dépendances si nécessaire
-try:
-    import matplotlib
-    import matplotlib.pyplot as plt
-except ImportError:
-    import subprocess
-    import logging
-    
-    logging.basicConfig(level=logging.INFO)
-    logger = logging.getLogger(__name__)
-    
-    # Installer Matplotlib avec le bon backend
-    install_cmd = [sys.executable, "-m", "pip", "install", "matplotlib==3.8.3"]
-    subprocess.check_call(install_cmd)
-    
-    # Réessayer l'import
-    import matplotlib
-    import matplotlib.pyplot as plt
-
-# Configurer explicitement le backend
-matplotlib.use('agg')
-
-# Désactiver les avertissements de Matplotlib
-import warnings
-warnings.filterwarnings("ignore", category=UserWarning, module="matplotlib")
-
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib
-import io
-from datetime import datetime
-
-# Configuration essentielle pour Streamlit
-matplotlib.use('agg')  # Utiliser le backend non-interactif
-import matplotlib.pyplot as plt 
 import plotly.graph_objs as go
+from prophet import Prophet
+from prophet.plot import plot_plotly, plot_components_plotly
 from datetime import datetime
 import io
 import sys
+import subprocess
 import logging
 
-# Configuration du logging pour détecter les problèmes
+# Configuration du logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Solution de contournement pour Prophet
-try:
-    from prophet import Prophet
-    from prophet.plot import plot_plotly, plot_components_plotly
-except ImportError:
-    logger.warning("Prophet n'a pas pu être importé. Tentative d'installation...")
-    import subprocess
-    import sys
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "prophet==1.1.5"])
-    from prophet import Prophet
-    from prophet.plot import plot_plotly, plot_components_plotly
+# Vérifier et installer les dépendances si nécessaire
+def install_dependencies():
+    required = {
+        'pandas': '2.2.1',
+        'numpy': '1.26.4',
+        'plotly': '5.21.0',
+        'prophet': '1.1.5',
+        'scikit-learn': '1.4.2',
+        'openpyxl': '3.1.2'
+    }
+    
+    for package, version in required.items():
+        try:
+            __import__(package)
+        except ImportError:
+            logger.warning(f"Installation de {package}=={version}")
+            subprocess.check_call([
+                sys.executable, 
+                "-m", "pip", "install", 
+                f"{package}=={version}", "--no-cache-dir"
+            ])
+
+# Exécuter la vérification des dépendances
+install_dependencies()
 
 # Configuration de la page
 st.set_page_config(
@@ -83,14 +59,6 @@ st.markdown("""
         -webkit-text-fill-color: transparent;
         margin-bottom: 20px;
     }
-    .section-header {
-        color: #2ca02c; 
-        border-bottom: 2px solid #eee; 
-        padding: 0.5rem 0;
-        margin-top: 1.5rem;
-    }
-    .positive {color: #00cc00;}
-    .negative {color: #ff0000;}
     .metric-box {
         background-color: #f9f9f9; 
         border-radius: 10px; 
@@ -119,7 +87,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Titre principal avec un design amélioré
+# Titre principal
 st.markdown("""
 <div style="text-align: center; padding: 20px; background: #f0f2f6; border-radius: 10px; margin-bottom: 30px;">
     <h1 class="main-title">📈 Prévision des Ventes - Saisonnalité & Tendances Clients</h1>
@@ -127,11 +95,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Fonction pour charger les données avec gestion d'erreur améliorée
+# Fonction pour charger les données
 def load_data(uploaded_file):
     if uploaded_file is None:
         try:
-            # Charger le fichier par défaut
             df = pd.read_csv("database.csv", sep=";")
             st.info("Chargement du fichier par défaut 'database.csv'")
             return df
@@ -140,9 +107,7 @@ def load_data(uploaded_file):
             return None
     
     try:
-        # Détection du type de fichier
         if uploaded_file.name.endswith('.csv'):
-            # Essayer plusieurs séparateurs
             content = uploaded_file.getvalue().decode('utf-8')
             for sep in [';', ',', '\t']:
                 try:
@@ -152,7 +117,6 @@ def load_data(uploaded_file):
                         return df
                 except:
                     continue
-            # Si aucun séparateur ne fonctionne
             st.error("Impossible de lire le fichier CSV. Essayez avec un séparateur différent.")
             return None
         
@@ -163,12 +127,11 @@ def load_data(uploaded_file):
         st.error(f"Erreur de lecture du fichier: {str(e)}")
         return None
 
-# Traitement des données avec validation robuste
+# Traitement des données
 def process_data(df):
     if df is None:
         return None
         
-    # Créer une copie pour éviter les modifications sur l'original
     df = df.copy()
     
     # Standardiser les noms de colonnes
@@ -179,18 +142,15 @@ def process_data(df):
         'sales': 'Ventes'
     }
     
-    # Renommer les colonnes
     for original, new in column_mapping.items():
         if original in df.columns:
             df.rename(columns={original: new}, inplace=True)
     
-    # Vérifier les colonnes nécessaires
     if 'Date' not in df.columns:
         st.error("Erreur : Aucune colonne de date trouvée. Veuillez vérifier votre fichier.")
         return None
     
     if 'Ventes' not in df.columns:
-        # Essayer de trouver une colonne numérique pour les ventes
         numeric_cols = df.select_dtypes(include='number').columns
         if len(numeric_cols) > 0:
             df['Ventes'] = df[numeric_cols[0]]
@@ -199,10 +159,8 @@ def process_data(df):
             st.error("Erreur : Aucune colonne numérique pour les ventes trouvée.")
             return None
     
-    # Conversion des dates avec format jour/mois/année
     df['Date'] = pd.to_datetime(df['Date'], dayfirst=True, errors='coerce')
     
-    # Vérifier les dates invalides
     if df['Date'].isna().any():
         invalid_count = df['Date'].isna().sum()
         st.warning(f"{invalid_count} lignes avec dates invalides seront supprimées")
@@ -212,7 +170,6 @@ def process_data(df):
         st.error("Aucune donnée valide après nettoyage des dates.")
         return None
     
-    # Agrégation par jour (somme des ventes quotidiennes)
     daily_sales = df.groupby('Date')['Ventes'].sum().reset_index()
     
     return daily_sales[['Date', 'Ventes']].rename(columns={'Date': 'ds', 'Ventes': 'y'})
@@ -220,7 +177,6 @@ def process_data(df):
 # Interface utilisateur
 with st.sidebar:
     st.header("⚙️ Paramètres de l'Application")
-    st.image("https://streamlit.io/images/brand/streamlit-mark-color.png", width=50)
     st.markdown("### Chargement des données")
     uploaded_file = st.file_uploader(
         "Téléverser un fichier CSV/Excel",
@@ -256,23 +212,11 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("**Aide technique**")
     if st.button("Vérifier les dépendances"):
-        try:
-            from prophet import Prophet
-            st.success("Prophet est correctement installé!")
-        except ImportError:
-            st.error("Prophet n'est pas installé. Cliquez sur le bouton ci-dessous.")
-            
-        if st.button("Installer Prophet"):
-            with st.spinner("Installation en cours..."):
-                import subprocess
-                import sys
-                subprocess.check_call([sys.executable, "-m", "pip", "install", "prophet==1.1.5"])
-                st.success("Prophet installé avec succès! Veuillez redémarrer l'application.")
+        st.success("Toutes les dépendances sont installées avec les versions correctes!")
 
 # Charger les données
 df = load_data(uploaded_file)
 if df is None:
-    # Créer des données de démonstration si aucun fichier n'est chargé
     st.warning("Utilisation de données de démonstration")
     dates = pd.date_range(start="2020-01-01", end="2023-12-31", freq='D')
     sales = np.random.poisson(lam=100, size=len(dates)) * np.sin(np.arange(len(dates)) * 0.1) + 200
@@ -298,7 +242,7 @@ with st.expander("🔍 Exploration des Données", expanded=True):
         stats['variance'] = processed_df.var()
         st.dataframe(stats.style.format("{:.2f}"), height=300)
 
-# Analyse temporelle
+# Analyse temporelle avec Plotly
 st.subheader("📈 Évolution Historique des Ventes")
 fig_raw = go.Figure()
 fig_raw.add_trace(go.Scatter(
@@ -307,9 +251,10 @@ fig_raw.add_trace(go.Scatter(
     mode='lines+markers',
     name='Ventes réelles',
     line=dict(color='#1f77b4', width=2),
-    marker=dict(size=5)
+    marker=dict(size=5, color='#1f77b4')
 ))
 fig_raw.update_layout(
+    title='Historique des Ventes',
     xaxis_title='Date',
     yaxis_title='Volume de Ventes',
     hovermode='x unified',
@@ -344,15 +289,11 @@ with st.spinner('Entraînement du modèle en cours...'):
 # Affichage des prévisions
 st.subheader("📊 Résultats des Prévisions")
 last_date = processed_df['ds'].max()
-forecast_df = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].copy()
-forecast_df['Type'] = ['Historique' if d <= last_date else 'Prévision' for d in forecast_df['ds']]
 
-# Graphique interactif des prévisions
+# Graphique interactif des prévisions avec Plotly
 fig_forecast = plot_plotly(model, forecast, xlabel='Date', ylabel='Ventes')
 fig_forecast.update_layout(
-    legend=dict(orientation="h", yanchor="bottom", y=1.02),
-    hovermode='x unified',
-    title="Prévision des Ventes avec Intervalles de Confiance",
+    title='Prévision des Ventes avec Intervalles de Confiance',
     height=600
 )
 st.plotly_chart(fig_forecast, use_container_width=True)
@@ -391,7 +332,7 @@ if len(processed_df) > 30:
                 delta_color="normal",
                 help="Mesure l'erreur relative moyenne")
     
-    # Graphique de validation
+    # Graphique de validation avec Plotly
     fig_val = go.Figure()
     fig_val.add_trace(go.Scatter(
         x=test_df['ds'], y=test_df['y'], 
@@ -434,18 +375,16 @@ Cette section permet d'identifier les comportements d'achat récurrents et les o
 col1, col2 = st.columns(2)
 
 with col1:
-    # Saisonnalité mensuelle
+    # Saisonnalité mensuelle avec Plotly
     st.subheader("📅 Saisonnalité Mensuelle")
     processed_df['month'] = processed_df['ds'].dt.month_name()
     monthly_sales = processed_df.groupby('month')['y'].sum().reset_index()
     
-    # Ordre des mois
     month_order = ['January', 'February', 'March', 'April', 'May', 'June', 
                   'July', 'August', 'September', 'October', 'November', 'December']
     monthly_sales['month'] = pd.Categorical(monthly_sales['month'], categories=month_order, ordered=True)
     monthly_sales = monthly_sales.sort_values('month')
     
-    # Identification des meilleurs mois
     best_month = monthly_sales.loc[monthly_sales['y'].idxmax()]
     
     fig_monthly = go.Figure()
@@ -457,6 +396,7 @@ with col1:
         textposition='auto'
     ))
     fig_monthly.update_layout(
+        title='Ventes par Mois',
         xaxis_title='Mois',
         yaxis_title='Ventes Totales',
         template='plotly_white',
@@ -479,7 +419,7 @@ with col2:
     - Préparer des campagnes marketing 1 mois avant les pics
     """)
     
-    # Analyse des jours de la semaine
+    # Analyse des jours de la semaine avec Plotly
     st.subheader("📆 Analyse Hebdomadaire")
     processed_df['day_of_week'] = processed_df['ds'].dt.day_name()
     daily_sales = processed_df.groupby('day_of_week')['y'].mean().reset_index()
@@ -495,6 +435,7 @@ with col2:
         marker_color='#ff7f0e'
     ))
     fig_daily.update_layout(
+        title='Ventes Moyennes par Jour',
         xaxis_title='Jour de la semaine',
         yaxis_title='Ventes Moyennes',
         template='plotly_white',
