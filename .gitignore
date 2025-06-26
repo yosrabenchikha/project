@@ -1,0 +1,14 @@
+# Fichiers sensibles
+.streamlit/secrets.toml
+__pycache__/
+*.pyc
+.env
+.DS_Store
+
+# Fichiers de données volumineux
+*.csv
+*.xlsx
+*.parquet
+
+# Fichiers de cache
+.cache
